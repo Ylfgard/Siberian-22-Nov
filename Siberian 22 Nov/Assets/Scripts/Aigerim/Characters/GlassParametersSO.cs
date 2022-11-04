@@ -7,6 +7,6 @@ namespace Cocktails
     [CreateAssetMenu(fileName = "NewGlass", menuName = "ScriptableObject/Glass")]
     public class GlassParametersSO : ScriptableObject
     {
-        [SerializeField] private List<ParametrSO> _parametrs;
+        [SerializeField] private List<ParameterSO> _parametrs;
     }
 }
