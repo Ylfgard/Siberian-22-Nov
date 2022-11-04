@@ -17,7 +17,7 @@ namespace Cocktails
 
         private void OnMouseDown()
         {
-            _clicked.Invoke(_result);
+            _clicked?.Invoke(_result);
         }
     }
 }

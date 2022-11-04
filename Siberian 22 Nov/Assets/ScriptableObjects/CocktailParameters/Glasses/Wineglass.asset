@@ -13,6 +13,12 @@ MonoBehaviour:
   m_Name: Wineglass
   m_EditorClassIdentifier: 
   _parameters:
+  - _name: Blob
+    _value: 0
+  - _name: Bookworm
+    _value: 0
+  - _name: Ghost
+    _value: 0
   - _name: Punk
     _value: 0
   - _name: Rock
