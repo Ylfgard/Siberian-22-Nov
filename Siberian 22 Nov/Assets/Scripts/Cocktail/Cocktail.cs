@@ -29,10 +29,11 @@ namespace Cocktails
             return false;
         }
 
-        private void Update()
+        public bool PourCocktail(Color cocktaulColor)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-                _glassIsEmpty = !_glassIsEmpty;
+            if (_curGlassParameters == null) return false;
+            _glassIsEmpty = false;
+            return true;
         }
     }
 }

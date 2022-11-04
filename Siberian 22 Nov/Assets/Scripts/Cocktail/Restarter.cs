@@ -19,7 +19,7 @@ namespace Cocktails
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.R))
-                _restart.Invoke();
+                _restart?.Invoke();
         }
     }
 
