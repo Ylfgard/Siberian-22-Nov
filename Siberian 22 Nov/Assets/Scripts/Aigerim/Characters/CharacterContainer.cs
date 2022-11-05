@@ -32,7 +32,9 @@ public class Object
 public class Question
 {
     [SerializeField][TextArea(5, 10)] private string _question;
+    [SerializeField] private CocktailAdditivesSO _alcohol;
 
     public string Description => _question;
+    public CocktailAdditivesSO Alcohol => _alcohol;
 }
 

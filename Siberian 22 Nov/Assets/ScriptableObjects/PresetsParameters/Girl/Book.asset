@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _parameters:
   - _name: Aristocrate
+    _value: 2
+  - _name: BadGuy
     _value: 0
-  - _name: GoodGirl
-    _value: 0
-  - _name: Punk
+  - _name: Homely
     _value: 1
-  - _name: Rock
+  - _name: PartyAnimal
     _value: 0

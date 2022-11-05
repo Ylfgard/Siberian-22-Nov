@@ -7,8 +7,14 @@ public class CharacterGenerator : MonoBehaviour
 {
     [SerializeField] private List<Character> _listCharacters;
     [SerializeField] private Parameter[] _allParamsScore;
+    [SerializeField] private CocktailAdditivesSO _alcohol;
 
     private void Start()
+    {
+        InstantiateCharacter();
+    }
+
+    private void InstantiateCharacter()
     {
         Character character = _listCharacters[UnityEngine.Random.Range(0, _listCharacters.Count)];
 
@@ -32,17 +38,23 @@ public class CharacterGenerator : MonoBehaviour
             Instantiate(object2.GO);
         }
 
+        SetAllInfo(preset, object1, object2, question);
+    }
+
+    private void SetAllInfo(Preset preset, Object object1, Object object2, Question question)
+    {
         _allParamsScore = CountParameterScore(preset, object1, object2);
+        _alcohol = question.Alcohol;
         Debug.Log(question.Description);
     }
 
-    public Parameter[] CountParameterScore(Preset preset, Object object1, Object object2)
+    private Parameter[] CountParameterScore(Preset preset, Object object1, Object object2)
     {
         Parameter[] result = new Parameter[preset.PresetParameter.Parameters.Length];
 
         for (int i = 0; i < result.Length; i++)
         {
-            result[i]  = new Parameter(preset.PresetParameter.Parameters[i].Name, preset.PresetParameter.Parameters[i].Value + object1.ObjectParameter.Parameters[i].Value);
+            result[i]  = new Parameter(preset.PresetParameter.Parameters[i].Name, preset.PresetParameter.Parameters[i].Value + object1.ObjectParameter.Parameters[i].Value + object2.ObjectParameter.Parameters[i].Value);
         }
 
         return result;

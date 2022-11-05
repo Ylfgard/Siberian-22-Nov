@@ -15,9 +15,9 @@ MonoBehaviour:
   _parameters:
   - _name: Aristocrate
     _value: 0
-  - _name: GoodGirl
+  - _name: BadGuy
+    _value: 2
+  - _name: Homely
     _value: 1
-  - _name: Punk
-    _value: 0
-  - _name: Rock
+  - _name: PartyAnimal
     _value: 0
