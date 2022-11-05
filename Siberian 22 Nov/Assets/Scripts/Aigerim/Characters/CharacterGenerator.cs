@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using GameControllers;
 
 public class CharacterGenerator : MonoBehaviour
 {
@@ -9,6 +10,13 @@ public class CharacterGenerator : MonoBehaviour
     [SerializeField] private Parameter[] _allParamsScore;
     [SerializeField] private CocktailAdditivesSO _alcohol;
     [SerializeField] private QuestionTrigger _questionTrigger;
+
+    private ScoreCounter _scoreCounter;
+
+    private void Awake()
+    {
+        _scoreCounter = FindObjectOfType<ScoreCounter>();
+    }
 
     private void Start()
     {
@@ -48,6 +56,7 @@ public class CharacterGenerator : MonoBehaviour
         _allParamsScore = CountParameterScore(preset, object1, object2);
         _alcohol = question.Alcohol;
         Debug.Log(question.Description);
+        _scoreCounter.SetCharacterParameters(_allParamsScore, _alcohol);
     }
 
     private Parameter[] CountParameterScore(Preset preset, Object object1, Object object2)

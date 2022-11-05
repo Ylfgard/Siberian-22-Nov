@@ -31,8 +31,20 @@ namespace Cocktails
 
         public bool MixCoctail(bool ice, List<CocktailParametersSO> ingridients, CocktailAdditivesSO alcohol)
         {
+            bool res;
             CocktailCombinationSO result = null;
-            if (ingridients.Count <= 0) return _cocktail.PourCocktail(result, alcohol);
+            if (_cocktail.CurAlcohol != null)
+            {
+                Debug.Log("Коктейль уже налит!");
+                return false;
+            }
+            if (ingridients.Count <= 0)
+            {
+                res = _cocktail.PourCocktail(result, alcohol);
+                if (res == false) 
+                    Debug.Log("Выберите ёмкость для коктейля!");
+                return res;
+            }
             
             Debug.Log(ice);
             foreach (CocktailParametersSO ingr in ingridients)
@@ -65,7 +77,10 @@ namespace Cocktails
                     }
                 }
             }
-            return _cocktail.PourCocktail(result, alcohol);
+            res = _cocktail.PourCocktail(result, alcohol);
+            if (res == false)
+                Debug.Log("Выберите ёмкость для коктейля!");
+            return res;
         }
     }
 }

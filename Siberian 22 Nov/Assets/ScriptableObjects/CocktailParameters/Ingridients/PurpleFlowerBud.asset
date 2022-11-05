@@ -13,4 +13,12 @@ MonoBehaviour:
   m_Name: PurpleFlowerBud
   m_EditorClassIdentifier: 
   _prefab: {fileID: 9171889966244380137, guid: ffc2a6c0684eeda438431d31f305ee6a, type: 3}
-  _parameters: []
+  _parameters:
+  - _name: Aristocrate
+    _value: 1
+  - _name: BadGuy
+    _value: 0
+  - _name: Homely
+    _value: 0
+  - _name: PartyAnimal
+    _value: 0

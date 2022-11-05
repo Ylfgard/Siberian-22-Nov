@@ -12,3 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9f1d6b586d14c0469cc69527ba0ce65, type: 3}
   m_Name: Iceberg
   m_EditorClassIdentifier: 
+  _parameters:
+  - _name: Aristocrate
+    _value: 1
+  - _name: BadGuy
+    _value: 0
+  - _name: Homely
+    _value: 0
+  - _name: PartyAnimal
+    _value: 0

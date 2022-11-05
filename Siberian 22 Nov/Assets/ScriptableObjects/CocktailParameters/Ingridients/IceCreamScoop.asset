@@ -13,4 +13,12 @@ MonoBehaviour:
   m_Name: IceCreamScoop
   m_EditorClassIdentifier: 
   _prefab: {fileID: 1621076152036615299, guid: 1c35380bd79580144ab2b65f0d79ae96, type: 3}
-  _parameters: []
+  _parameters:
+  - _name: Aristocrate
+    _value: 0
+  - _name: BadGuy
+    _value: 0
+  - _name: Homely
+    _value: 1
+  - _name: PartyAnimal
+    _value: 0

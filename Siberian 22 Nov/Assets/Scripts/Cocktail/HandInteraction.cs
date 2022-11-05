@@ -36,6 +36,7 @@ namespace Cocktails
                 _curDecoration.SetActive(false);
                 _curDecoration = null;
             }
+            _selectedIngridient = null;
         }
 
         private void TakeIngridient(CocktailParametersSO parameters)
@@ -58,7 +59,10 @@ namespace Cocktails
         private void UseGlass(int index)
         {
             if (_selectedIngridient == null)
-                _cocktail.GiveCocktail();
+            {
+                if(_cocktail.GiveCocktail())
+                    Reset();
+            }
             else
                 AddDecoration(_decorationHolders[index]);
         }
@@ -78,6 +82,7 @@ namespace Cocktails
                 holder.Decorations.Add(_selectedIngridient.name, decoration);
             }
             _curDecoration = decoration;
+            _selectedIngridient = null;
         }
 
         private void RemoveDecoration()

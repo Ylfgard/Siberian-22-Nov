@@ -15,10 +15,10 @@ MonoBehaviour:
   _prefab: {fileID: 3886051520954277681, guid: 45f331aaeefcd674ea5a92e7145e9e54, type: 3}
   _parameters:
   - _name: Aristocrate
+    _value: 1
+  - _name: BadGuy
     _value: 0
-  - _name: GoodGirl
+  - _name: Homely
     _value: 0
-  - _name: Punk
-    _value: 0
-  - _name: Rock
+  - _name: PartyAnimal
     _value: 0
