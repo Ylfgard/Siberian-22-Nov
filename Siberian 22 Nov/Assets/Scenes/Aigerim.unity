@@ -166,8 +166,9 @@ GameObject:
   - component: {fileID: 101855627}
   - component: {fileID: 101855629}
   - component: {fileID: 101855628}
+  - component: {fileID: 101855630}
   m_Layer: 0
-  m_Name: CharacterGeneratorSystem
+  m_Name: CharacterSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -246,10 +247,8 @@ MonoBehaviour:
     - _question: 5
       _alcohol: {fileID: 11400000, guid: bf0d2617fa27edc45be54c4089249ebf, type: 2}
     - _question: 6
-      _alcohol: {fileID: 0}
-  _allParamsScore: []
-  _alcohol: {fileID: 0}
-  _questionTrigger: {fileID: 0}
+      _alcohol: {fileID: 11400000, guid: 503b650292f048f49a83a99ee5da6b3e, type: 2}
+  _characterInfo: {fileID: 0}
 --- !u!114 &101855629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,7 +261,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b507fe87ba6488458d25e49eef418f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _characterGenerator: {fileID: 0}
+  _characterInfo: {fileID: 0}
+  _questionManager: {fileID: 1212995616}
+--- !u!114 &101855630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101855626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7679243307fb147428d9ad76d3b447b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _questionTrigger: {fileID: 0}
+  _questionText: 
+  _allParamsScore: []
+  _alcohol: {fileID: 0}
+  _questionManager: {fileID: 1212995616}
 --- !u!1001 &109615002
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1695,9 +1712,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parameterRequests:
-  - _type: PresetsParametersSO
+  - _active: 0
+    _type: PresetsParametersSO
     _path: Assets/ScriptableObjects/PresetsParameters
-  - _type: ObjectParametersSO
+  - _active: 0
+    _type: ObjectParametersSO
     _path: Assets/ScriptableObjects/ObjectsParameters
 --- !u!1 &786294606
 GameObject:
@@ -1994,6 +2013,7 @@ Transform:
   - {fileID: 727925599}
   - {fileID: 101855627}
   - {fileID: 1212995615}
+  - {fileID: 1968371706}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3239,6 +3259,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1814141139}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1843367423 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4e77cdea8300af24eb62e1de2b21a0cc, type: 3}
+  m_PrefabInstance: {fileID: 109615002}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1950655557
 GameObject:
   m_ObjectHideFlags: 0
@@ -3318,6 +3343,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1950655557}
   m_CullTransparentMesh: 1
+--- !u!1 &1968371705
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1968371706}
+  - component: {fileID: 1968371707}
+  m_Layer: 0
+  m_Name: GameControllers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1968371706
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1968371705}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 899847617}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1968371707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1968371705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f6491fc655df3447b8777ad1d79741f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1970737198
 GameObject:
   m_ObjectHideFlags: 0
@@ -3451,7 +3520,6 @@ GameObject:
   - component: {fileID: 2014909755}
   - component: {fileID: 2014909760}
   - component: {fileID: 2014909759}
-  - component: {fileID: 2014909758}
   - component: {fileID: 2014909757}
   m_Layer: 0
   m_Name: CocktailSystem
@@ -3489,20 +3557,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _additiveOnTable: []
   _ice:
-    _parameters: {fileID: 0}
-    _selectedAdditive: {fileID: 0}
---- !u!114 &2014909758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2014909754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54cd5f227565baa4eb96647085af585b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+    _parameters: {fileID: 11400000, guid: dcd9f8a580d157f4aa50fb12fc15528c, type: 2}
+    _selectedAdditive: {fileID: 1843367423}
 --- !u!114 &2014909759
 MonoBehaviour:
   m_ObjectHideFlags: 0

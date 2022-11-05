@@ -7,15 +7,11 @@ using GameControllers;
 public class CharacterGenerator : MonoBehaviour
 {
     [SerializeField] private List<Character> _listCharacters;
-    [SerializeField] private Parameter[] _allParamsScore;
-    [SerializeField] private CocktailAdditivesSO _alcohol;
-    [SerializeField] private QuestionTrigger _questionTrigger;
-
-    private ScoreCounter _scoreCounter;
+    [SerializeField] private CharacterInfo _characterInfo;
 
     private void Awake()
     {
-        _scoreCounter = FindObjectOfType<ScoreCounter>();
+        _characterInfo = GetComponent<CharacterInfo>();
     }
 
     private void Start()
@@ -31,7 +27,6 @@ public class CharacterGenerator : MonoBehaviour
         Object object1 = character.GetRandomObjects();
         Object object2 = character.GetRandomObjects();
         Question question = character.GetRandomQuestion();
-        _questionTrigger = preset.GO.GetComponent<QuestionTrigger>();
 
         if (preset != null)
         {
@@ -53,10 +48,8 @@ public class CharacterGenerator : MonoBehaviour
 
     private void SetAllInfo(Preset preset, Object object1, Object object2, Question question)
     {
-        _allParamsScore = CountParameterScore(preset, object1, object2);
-        _alcohol = question.Alcohol;
+        _characterInfo.SetCharacterInfo(preset.GO.GetComponent<QuestionTrigger>(), question.Description, CountParameterScore(preset, object1, object2), question.Alcohol);
         Debug.Log(question.Description);
-        _scoreCounter.SetCharacterParameters(_allParamsScore, _alcohol);
     }
 
     private Parameter[] CountParameterScore(Preset preset, Object object1, Object object2)
