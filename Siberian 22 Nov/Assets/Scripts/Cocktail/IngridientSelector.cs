@@ -1,13 +1,14 @@
 using UnityEngine;
 using System;
+using FMODUnity;
 
 namespace Cocktails
 {
-    public delegate void SendCocktailParameter(CocktailParametersSO Parameter);
+    public delegate void SendIngridient(CocktailParametersSO Parameter, GameObject Prefab, EventReference Sound);
 
     public class IngridientSelector : MonoBehaviour
     {
-        public event SendCocktailParameter IngridientSelected;
+        public event SendIngridient IngridientSelected;
 
         [SerializeField] private Ingridient[] _ingridients;
 
@@ -22,16 +23,20 @@ namespace Cocktails
 
         private void SelectIngridient(int index)
         {
-            IngridientSelected?.Invoke(_ingridients[index].Parameters);
+            IngridientSelected?.Invoke(_ingridients[index].Parameters, _ingridients[index].Prefab, _ingridients[index].Sound);
         }
     }
 
     [Serializable]
     public class Ingridient
     {
+        [SerializeField] private EventReference _sound;
+        [SerializeField] private GameObject _prefab;
         [SerializeField] private CocktailParametersSO _parameters;
         [SerializeField] private GameObject _ingridientOnTable;
 
+        public EventReference Sound => _sound;
+        public GameObject Prefab => _prefab;
         public CocktailParametersSO Parameters => _parameters;
         public GameObject IngridientOnTable => _ingridientOnTable;
     }

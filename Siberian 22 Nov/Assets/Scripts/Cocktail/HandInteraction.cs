@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using FMODUnity;
 
 namespace Cocktails
 {
@@ -11,6 +12,8 @@ namespace Cocktails
         private Cocktail _cocktail;
         private Shaker _shaker;
         private CocktailParametersSO _selectedIngridient;
+        private GameObject _selectedIngridientPrefab;
+        private EventReference _selectedIngridientSound;
         private GameObject _curDecoration;
 
         private void Awake()
@@ -37,12 +40,15 @@ namespace Cocktails
                 _curDecoration = null;
             }
             _selectedIngridient = null;
+            _selectedIngridientPrefab = null;
         }
 
-        private void TakeIngridient(CocktailParametersSO parameters)
+        private void TakeIngridient(CocktailParametersSO parameters, GameObject prefab, EventReference reference)
         {
             Debug.Log("Selected " + parameters.name + " ingridient");
             _selectedIngridient = parameters;
+            _selectedIngridientPrefab = prefab;
+            _selectedIngridientSound = reference;
         }
 
         private void UseShaker()
@@ -50,7 +56,9 @@ namespace Cocktails
             if(_selectedIngridient != null)
             {
                 _shaker.AddIngridient(_selectedIngridient);
+                RuntimeManager.PlayOneShot(_selectedIngridientSound);
                 _selectedIngridient = null;
+                _selectedIngridientPrefab = null;
                 return;
             }
             _shaker.Shake();
@@ -78,7 +86,7 @@ namespace Cocktails
             }
             else
             {
-                decoration = Instantiate(_selectedIngridient.Prefab, holder.DecorationPosition, Quaternion.identity);
+                decoration = Instantiate(_selectedIngridientPrefab, holder.DecorationPosition, Quaternion.identity);
                 holder.Decorations.Add(_selectedIngridient.name, decoration);
             }
             _curDecoration = decoration;
