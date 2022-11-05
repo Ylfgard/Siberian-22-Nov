@@ -29,9 +29,11 @@ namespace Cocktails
             return false;
         }
 
-        public bool PourCocktail(Color cocktaulColor)
+        public bool PourCocktail(CocktailCombinationSO combination)
         {
             if (_curGlassParameters == null) return false;
+            if (combination == null) Debug.Log("Какая гадость!");
+            else Debug.Log(combination.name);
             _glassIsEmpty = false;
             return true;
         }

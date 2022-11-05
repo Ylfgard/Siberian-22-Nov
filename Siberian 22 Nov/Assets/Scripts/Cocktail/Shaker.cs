@@ -11,14 +11,14 @@ namespace Cocktails
         [SerializeField] private Additive[] _additiveOnTable;
         [SerializeField] private Additive _ice;
 
-        private Cocktail _cocktail;
+        private CocktailCombinator _combinator;
         private CocktailAdditivesSO _selectedAlcohol;
         private List<CocktailParametersSO> _selectedIngridients;
         private bool _iceAdded;
 
         private void Awake()
         {
-            _cocktail = FindObjectOfType<Cocktail>();
+            _combinator = FindObjectOfType<CocktailCombinator>();
             for (int i = 0; i < _additiveOnTable.Length; i++)
             {
                 var clickable = _additiveOnTable[i].SelectedAdditive.AddComponent<ClickableObject>();
@@ -38,16 +38,18 @@ namespace Cocktails
 
         public void Shake()
         {
-            if (_selectedAlcohol == null && _iceAdded == false &&
-                _selectedIngridients.Count <= 0)
+            if (_selectedAlcohol == null)
             {
-                Debug.Log("Шейкер пуст!");
+                Debug.Log("Добавьте алкоголь!");
+                return;
+            }
+            if (_iceAdded == false && _selectedIngridients.Count <= 0)
+            {
+                Debug.Log("Не хватает ингридиентов!");
                 return;
             }
 
-            
-
-            if(_cocktail.PourCocktail(Color.black) == false)
+            if (_combinator.MixCoctail(_iceAdded, _selectedIngridients) == false)
             {
                 Debug.Log("Выберите ёмкость для коктейля!");
                 return;

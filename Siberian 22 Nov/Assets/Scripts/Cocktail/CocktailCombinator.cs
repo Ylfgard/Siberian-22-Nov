@@ -1,21 +1,71 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
+using System.Collections.Generic;
 
 namespace Cocktails
 {
     public class CocktailCombinator : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
+        [SerializeField] private List<CocktailCombinationSO> _combinations;
+
+        private Cocktail _cocktail;
+
+        private void Awake()
         {
-        
+            _cocktail = FindObjectOfType<Cocktail>();
         }
 
-        // Update is called once per frame
-        void Update()
+#if UNITY_EDITOR
+        [ContextMenu("Find Combinations")]
+#endif
+        private void FindCombinations()
         {
-        
+            string[] combinationsGUID = AssetDatabase.FindAssets("t:CocktailCombinationSO", new[] { "Assets/ScriptableObjects/CocktailCombinations" });
+            List<string> combinationsPaths = new List<string>();
+            foreach (string GUID in combinationsGUID)
+                combinationsPaths.Add(AssetDatabase.GUIDToAssetPath(GUID));
+            _combinations = new List<CocktailCombinationSO>();
+            foreach (string path in combinationsPaths)
+                _combinations.Add(AssetDatabase.LoadAssetAtPath(path, typeof(CocktailCombinationSO)) as CocktailCombinationSO);
+        }
+
+        public bool MixCoctail(bool ice, List<CocktailParametersSO> ingridients)
+        {
+            CocktailCombinationSO result = null;
+            if (ingridients.Count <= 0) return _cocktail.PourCocktail(result);
+            
+            Debug.Log(ice);
+            foreach (CocktailParametersSO ingr in ingridients)
+                Debug.Log(ingr.name);
+            
+            List<CocktailParametersSO> ingridientsCheck = new List<CocktailParametersSO>();
+            int ingridientsCount = 0;
+            foreach (CocktailCombinationSO combination in _combinations)
+            {
+                if (combination.Ice != ice) continue;
+
+                ingridientsCheck = new List<CocktailParametersSO>();
+                foreach (CocktailParametersSO ingridient in ingridients)
+                        ingridientsCheck.Add(ingridient);
+
+                ingridientsCount = 0;
+                foreach (CocktailParametersSO ingridient in combination.Ingridients)
+                    if (ingridientsCheck.Contains(ingridient))
+                    {
+                        ingridientsCount++;
+                        ingridientsCheck.Remove(ingridient);
+                    }
+
+                if (combination.Ingridients.Length == ingridientsCount)
+                {
+                    if (ingridientsCheck.Count <= combination.AnyIngridientCount)
+                    {
+                        result = combination;
+                        break;
+                    }
+                }
+            }
+            return _cocktail.PourCocktail(result);
         }
     }
 }
