@@ -1,11 +1,13 @@
 using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
+using FMODUnity;
 
 namespace Cocktails
 {
     public class CocktailCombinator : MonoBehaviour
     {
+        [SerializeField] private EventReference _failCocktailSound;
         [SerializeField] private List<CocktailCombinationSO> _combinations;
 
         private Cocktail _cocktail;
@@ -77,6 +79,10 @@ namespace Cocktails
                     }
                 }
             }
+            if (result == null)
+                RuntimeManager.PlayOneShot(_failCocktailSound);
+            else
+                RuntimeManager.PlayOneShot(result.Sound);
             res = _cocktail.PourCocktail(result, alcohol);
             if (res == false)
                 Debug.Log("Выберите ёмкость для коктейля!");

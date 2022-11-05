@@ -1,10 +1,13 @@
 using UnityEngine;
 using GameControllers;
+using FMODUnity;
 
 namespace Cocktails
 {
     public class Cocktail : MonoBehaviour, IResetable
     {
+        //[SerializeField] private EventReference _cocktailFinish;
+
         private ScoreCounter _scoreCounter;
         private CocktailParametersSO _curGlassParameters;
         private CocktailCombinationSO _curCocktailCombination;
@@ -77,6 +80,7 @@ namespace Cocktails
             }
 
             _scoreCounter.CountScore(result, _curAlcohol);
+            //RuntimeManager.PlayOneShot(_cocktailFinish);
             Reset();
             return true;
         }

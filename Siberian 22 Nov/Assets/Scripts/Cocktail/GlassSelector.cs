@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using FMODUnity;
 
 namespace Cocktails
 {
@@ -7,6 +8,7 @@ namespace Cocktails
     {
         public event SendEvent GlassChanged;
 
+        [SerializeField] private EventReference _putGlass;
         [SerializeField] private Glass[] _glasses;
         
         private Cocktail _cocktail;
@@ -44,6 +46,7 @@ namespace Cocktails
                 }
                 glass.OnTable.SetActive(true);
                 _selectedGlass = glass.OnTable;
+                RuntimeManager.PlayOneShot(_putGlass);
             }
             else Debug.Log("Опустошите текущую ёмкость!");
         }
