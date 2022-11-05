@@ -7,9 +7,11 @@ namespace Cocktails
     public class Cocktail : MonoBehaviour, IResetable
     {
         //[SerializeField] private EventReference _cocktailFinish;
+        [SerializeField] private Color _failCocktailMaterial;
 
         private ScoreCounter _scoreCounter;
         private CocktailParametersSO _curGlassParameters;
+        private MeshRenderer _curDrinkMesh;
         private CocktailCombinationSO _curCocktailCombination;
         private CocktailAdditivesSO _curAlcohol;
         private CocktailParametersSO _curDecoration;
@@ -24,18 +26,21 @@ namespace Cocktails
 
         public void Reset()
         {
+            if(_curDrinkMesh != null) _curDrinkMesh.enabled = false;
+            _curDrinkMesh = null;
             _curAlcohol = null;
             _curCocktailCombination = null;
             _curGlassParameters = null;
             _curDecoration = null;
         }
 
-        public bool SelectGlass(CocktailParametersSO glassParameters)
+        public bool SelectGlass(CocktailParametersSO glassParameters, MeshRenderer drinkMesh)
         {
             if (_curAlcohol == null)
             {
                 Debug.Log("Selected " + glassParameters.name);
                 _curGlassParameters = glassParameters;
+                _curDrinkMesh = drinkMesh;
                 return true;
             }
             return false;
@@ -44,9 +49,17 @@ namespace Cocktails
         public bool PourCocktail(CocktailCombinationSO combination, CocktailAdditivesSO alcohol)
         {
             if (_curGlassParameters == null) return false;
-            if (combination == null) Debug.Log("Какая гадость!");
-            else Debug.Log(combination.name + " " + alcohol.name);
-
+            if (combination == null)
+            {
+                _curDrinkMesh.material.color = _failCocktailMaterial;
+                Debug.Log("Какая гадость!");
+            }
+            else
+            {
+                _curDrinkMesh.material.color = combination.Color;
+                Debug.Log(combination.name + " " + alcohol.name);
+            }
+            _curDrinkMesh.enabled = true;
             _curCocktailCombination = combination;
             _curAlcohol = alcohol;
             return true;
