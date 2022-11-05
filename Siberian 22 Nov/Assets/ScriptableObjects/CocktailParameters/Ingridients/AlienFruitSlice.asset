@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20bfca7b9aa61474bacaf68f19d5855d, type: 3}
   m_Name: AlienFruitSlice
   m_EditorClassIdentifier: 
+  _prefab: {fileID: 7892355199898825621, guid: b09cffe6ea1a6ba4987af96b25f35ec5, type: 3}
   _parameters: []

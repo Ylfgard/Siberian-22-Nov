@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20bfca7b9aa61474bacaf68f19d5855d, type: 3}
   m_Name: PredatoryFlowerWithOpenTrap
   m_EditorClassIdentifier: 
+  _prefab: {fileID: 1294498423651969564, guid: 608747ed58da7e6449f2e901ca002f79, type: 3}
   _parameters: []

@@ -1,11 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
 
 [CreateAssetMenu (fileName = "NewCocktailParameter", menuName = "ScriptableObject/CocktailParameter")]
 public class CocktailParametersSO : ScriptableObject, IRequiredParameters
 {
+    [SerializeField] private GameObject _prefab;
     [SerializeField] private Parameter[] _parameters;
+
+    public GameObject Prefab => _prefab;
+    public Parameter[] Parameters => _parameters;
 
     public void Setup(List<ParameterSO> parameters)
     {
