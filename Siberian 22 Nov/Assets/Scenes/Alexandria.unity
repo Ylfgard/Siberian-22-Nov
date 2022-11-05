@@ -1140,6 +1140,117 @@ Transform:
   m_Father: {fileID: 832496436}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 116.688, y: -2.5809937, z: 24.061996}
+--- !u!1 &483962480
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 483962481}
+  - component: {fileID: 483962485}
+  - component: {fileID: 483962484}
+  - component: {fileID: 483962483}
+  - component: {fileID: 483962482}
+  m_Layer: 0
+  m_Name: Sink
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &483962481
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483962480}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.643, y: 0.534, z: 0.352}
+  m_LocalScale: {x: 0.35866034, y: 0.19845867, z: 0.3013821}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 832496436}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &483962482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483962480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4b35ffa54597bf4881aaf6c8f34afe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sinkPenalty: -5
+--- !u!65 &483962483
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483962480}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &483962484
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483962480}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &483962485
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483962480}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &602664143
 GameObject:
   m_ObjectHideFlags: 0
@@ -2547,6 +2658,7 @@ Transform:
   - {fileID: 181113855}
   - {fileID: 2106875619}
   - {fileID: 36190076}
+  - {fileID: 483962481}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3455,8 +3567,11 @@ MonoBehaviour:
       _parameter: {fileID: 11400000, guid: 0345739d0ac9432449861ebede5f7aa6, type: 2}
     _questions:
     - _question: z1
+      _alcohol: {fileID: 11400000, guid: b124221cdc6e08c458c0db882a989b8d, type: 2}
     - _question: 2
+      _alcohol: {fileID: 11400000, guid: bf0d2617fa27edc45be54c4089249ebf, type: 2}
     - _question: 3
+      _alcohol: {fileID: 11400000, guid: 503b650292f048f49a83a99ee5da6b3e, type: 2}
   - _name: Snail
     _presets:
     - _preset: {fileID: 8986293434984019623, guid: 27d943e743d0d5443896c4ed71ae5d80, type: 3}
@@ -3472,9 +3587,13 @@ MonoBehaviour:
       _parameter: {fileID: 11400000, guid: 0345739d0ac9432449861ebede5f7aa6, type: 2}
     _questions:
     - _question: 4
+      _alcohol: {fileID: 11400000, guid: 919a6b32b003b3d4b965658f097eecb5, type: 2}
     - _question: 5
+      _alcohol: {fileID: 11400000, guid: 503b650292f048f49a83a99ee5da6b3e, type: 2}
     - _question: 6
+      _alcohol: {fileID: 11400000, guid: bf0d2617fa27edc45be54c4089249ebf, type: 2}
   _allParamsScore: []
+  _alcohol: {fileID: 0}
 --- !u!114 &1218548000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3600,12 +3719,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parameterRequests:
-  - _type: CocktailParametersSO
+  - _active: 0
+    _type: CocktailParametersSO
     _path: Assets/ScriptableObjects/CocktailParameters/Glasses
-  - _type: CocktailParametersSO
+  - _active: 0
+    _type: CocktailParametersSO
     _path: Assets/ScriptableObjects/CocktailParameters/Ingridients
-  - _type: CocktailParametersSO
+  - _active: 0
+    _type: CocktailParametersSO
     _path: Assets/ScriptableObjects/CocktailParameters/CocktailCombinationParameters
+  - _active: 0
+    _type: CocktailAdditivesSO
+    _path: Assets/ScriptableObjects/CocktailParameters/Additives
 --- !u!1001 &1299844515
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6650,7 +6775,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2106875618}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.257, y: 0.538, z: 0.269}
+  m_LocalPosition: {x: -0.229, y: 0.538, z: 0.039}
   m_LocalScale: {x: 0.15963066, y: 0.43996775, z: 0.15963066}
   m_ConstrainProportionsScale: 0
   m_Children: []

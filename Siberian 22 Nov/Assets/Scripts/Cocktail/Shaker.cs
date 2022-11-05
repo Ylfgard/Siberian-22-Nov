@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System;
+using FMODUnity;
 
 namespace Cocktails
 {
@@ -8,6 +9,7 @@ namespace Cocktails
     {
         public event SendEvent ShakerClicked;
 
+        //[SerializeField] private string _shakeSound;
         [SerializeField] private Additive[] _additiveOnTable;
         [SerializeField] private Additive _ice;
 
@@ -15,6 +17,8 @@ namespace Cocktails
         private CocktailAdditivesSO _selectedAlcohol;
         private List<CocktailParametersSO> _selectedIngridients;
         private bool _iceAdded;
+
+        public CocktailAdditivesSO SelectedAlcohol => _selectedAlcohol;
 
         private void Awake()
         {
@@ -49,11 +53,8 @@ namespace Cocktails
                 return;
             }
 
-            if (_combinator.MixCoctail(_iceAdded, _selectedIngridients, _selectedAlcohol) == false)
-            {
-                Debug.Log("Выберите ёмкость для коктейля!");
-                return;
-            }
+            if (_combinator.MixCoctail(_iceAdded, _selectedIngridients, _selectedAlcohol) == false) return;
+            //RuntimeManager.PlayOneShot(_shakeSound);
             Reset();
         }
 

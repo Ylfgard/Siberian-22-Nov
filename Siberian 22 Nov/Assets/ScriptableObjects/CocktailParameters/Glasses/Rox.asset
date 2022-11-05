@@ -10,16 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 20bfca7b9aa61474bacaf68f19d5855d, type: 3}
-  m_Name: Wineglass
+  m_Name: Rox
   m_EditorClassIdentifier: 
+  _prefab: {fileID: 0}
   _parameters:
-  - _name: Blob
+  - _name: Aristocrate
     _value: 0
-  - _name: Bookworm
+  - _name: BadGuy
     _value: 0
-  - _name: Ghost
-    _value: 0
-  - _name: Punk
-    _value: 0
-  - _name: Rock
+  - _name: Homely
+    _value: 1
+  - _name: PartyAnimal
     _value: 0

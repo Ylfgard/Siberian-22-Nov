@@ -25,6 +25,7 @@ public class ParameterSetuper : MonoBehaviour
         var parameterRequests = Singltone.instance.GetParameterRequests();
         foreach(var pReq in parameterRequests)
         {
+            if (pReq.Active == false) continue;
             string[] requestsGUID = AssetDatabase.FindAssets("t:" + pReq.Type, new[] { pReq.Path });
             List<string> requestsPaths = new List<string>();
             foreach (string GUID in requestsGUID)
@@ -43,9 +44,11 @@ public class ParameterSetuper : MonoBehaviour
 [Serializable]
 public class ParameterRequest
 {
+    [SerializeField] private bool _active;
     [SerializeField] private string _type;
     [SerializeField] private string _path;
 
+    public bool Active => _active;
     public string Type => _type;
     public string Path => _path;
 }

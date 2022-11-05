@@ -13,4 +13,12 @@ MonoBehaviour:
   m_Name: SmallAndRoundAlienEgg
   m_EditorClassIdentifier: 
   _prefab: {fileID: 3929630140278257659, guid: a1c9acfbabc51f44d8df1e4f38e073f0, type: 3}
-  _parameters: []
+  _parameters:
+  - _name: Aristocrate
+    _value: 0
+  - _name: BadGuy
+    _value: 1
+  - _name: Homely
+    _value: 0
+  - _name: PartyAnimal
+    _value: 0

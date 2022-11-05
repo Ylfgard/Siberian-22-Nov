@@ -6,11 +6,12 @@ namespace Cocktails
     public class Cocktail : MonoBehaviour, IResetable
     {
         private ScoreCounter _scoreCounter;
-        private bool _glassIsEmpty;
         private CocktailParametersSO _curGlassParameters;
         private CocktailCombinationSO _curCocktailCombination;
         private CocktailAdditivesSO _curAlcohol;
         private CocktailParametersSO _curDecoration;
+
+        public CocktailAdditivesSO CurAlcohol => _curAlcohol;
 
         private void Awake()
         {
@@ -53,17 +54,31 @@ namespace Cocktails
             _curDecoration = decoration;
         }
 
-        public void GiveCocktail()
+        public bool GiveCocktail()
         {
             if(_curAlcohol == null)
             {
                 Debug.Log("Вы не налили коктейль!");
-                return;
+                return false;
             }
 
-            Parameter[] result = new Parameter[_curCocktailCombination.Parameters.Parameters.Length];
+            Parameter[] result = new Parameter[_curGlassParameters.Parameters.Length];
+            for(int i = 0; i < result.Length; i++)
+            {
+                if (_curCocktailCombination == null)
+                    result[i] = new Parameter(_curGlassParameters.Parameters[i].Name, 0);
+                else if (_curDecoration == null)
+                    result[i] = new Parameter(_curGlassParameters.Parameters[i].Name, _curGlassParameters.Parameters[i].Value +
+                        _curCocktailCombination.Parameters.Parameters[i].Value + _curAlcohol.Parameters[i].Value);
+                else
+                    result[i] = new Parameter(_curGlassParameters.Parameters[i].Name, _curDecoration.Parameters[i].Value +
+                        _curCocktailCombination.Parameters.Parameters[i].Value + _curGlassParameters.Parameters[i].Value
+                        + _curAlcohol.Parameters[i].Value);
+            }
 
             _scoreCounter.CountScore(result, _curAlcohol);
+            Reset();
+            return true;
         }
     }
 }
