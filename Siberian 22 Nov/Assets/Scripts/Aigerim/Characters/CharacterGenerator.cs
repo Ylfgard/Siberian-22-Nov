@@ -8,6 +8,7 @@ public class CharacterGenerator : MonoBehaviour
     [SerializeField] private List<Character> _listCharacters;
     [SerializeField] private Parameter[] _allParamsScore;
     [SerializeField] private CocktailAdditivesSO _alcohol;
+    [SerializeField] private QuestionTrigger _questionTrigger;
 
     private void Start()
     {
@@ -22,6 +23,7 @@ public class CharacterGenerator : MonoBehaviour
         Object object1 = character.GetRandomObjects();
         Object object2 = character.GetRandomObjects();
         Question question = character.GetRandomQuestion();
+        _questionTrigger = preset.GO.GetComponent<QuestionTrigger>();
 
         if (preset != null)
         {

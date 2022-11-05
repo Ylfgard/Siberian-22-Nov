@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class CharacterGeneratorManager : MonoBehaviour
 {
-    
+    [SerializeField] private CharacterGenerator _characterGenerator;
 }
