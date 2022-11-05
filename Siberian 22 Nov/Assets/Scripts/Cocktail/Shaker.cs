@@ -49,7 +49,7 @@ namespace Cocktails
                 return;
             }
 
-            if (_combinator.MixCoctail(_iceAdded, _selectedIngridients) == false)
+            if (_combinator.MixCoctail(_iceAdded, _selectedIngridients, _selectedAlcohol) == false)
             {
                 Debug.Log("Выберите ёмкость для коктейля!");
                 return;

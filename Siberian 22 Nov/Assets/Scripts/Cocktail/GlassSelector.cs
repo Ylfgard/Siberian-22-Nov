@@ -5,6 +5,8 @@ namespace Cocktails
 {
     public class GlassSelector : MonoBehaviour, IResetable
     {
+        public event SendEvent GlassChanged;
+
         [SerializeField] private Glass[] _glasses;
         
         private Cocktail _cocktail;
@@ -35,7 +37,11 @@ namespace Cocktails
             var glass = _glasses[index];
             if (_cocktail.SelectGlass(glass.Parameters))
             {
-                if(_selectedGlass != null) _selectedGlass.SetActive(false);
+                if(_selectedGlass != null)
+                {
+                    GlassChanged?.Invoke();
+                    _selectedGlass.SetActive(false);
+                }
                 glass.OnTable.SetActive(true);
                 _selectedGlass = glass.OnTable;
             }

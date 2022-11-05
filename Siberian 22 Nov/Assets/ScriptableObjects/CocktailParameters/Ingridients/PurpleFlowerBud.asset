@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20bfca7b9aa61474bacaf68f19d5855d, type: 3}
   m_Name: PurpleFlowerBud
   m_EditorClassIdentifier: 
+  _prefab: {fileID: 9171889966244380137, guid: ffc2a6c0684eeda438431d31f305ee6a, type: 3}
   _parameters: []

@@ -29,10 +29,10 @@ namespace Cocktails
                 _combinations.Add(AssetDatabase.LoadAssetAtPath(path, typeof(CocktailCombinationSO)) as CocktailCombinationSO);
         }
 
-        public bool MixCoctail(bool ice, List<CocktailParametersSO> ingridients)
+        public bool MixCoctail(bool ice, List<CocktailParametersSO> ingridients, CocktailAdditivesSO alcohol)
         {
             CocktailCombinationSO result = null;
-            if (ingridients.Count <= 0) return _cocktail.PourCocktail(result);
+            if (ingridients.Count <= 0) return _cocktail.PourCocktail(result, alcohol);
             
             Debug.Log(ice);
             foreach (CocktailParametersSO ingr in ingridients)
@@ -65,7 +65,7 @@ namespace Cocktails
                     }
                 }
             }
-            return _cocktail.PourCocktail(result);
+            return _cocktail.PourCocktail(result, alcohol);
         }
     }
 }

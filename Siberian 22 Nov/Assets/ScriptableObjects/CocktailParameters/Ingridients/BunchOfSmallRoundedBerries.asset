@@ -12,4 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20bfca7b9aa61474bacaf68f19d5855d, type: 3}
   m_Name: BunchOfSmallRoundedBerries
   m_EditorClassIdentifier: 
-  _parameters: []
+  _prefab: {fileID: 3886051520954277681, guid: 45f331aaeefcd674ea5a92e7145e9e54, type: 3}
+  _parameters:
+  - _name: Aristocrate
+    _value: 0
+  - _name: GoodGirl
+    _value: 0
+  - _name: Punk
+    _value: 0
+  - _name: Rock
+    _value: 0
