@@ -9,7 +9,9 @@ namespace Cocktails
     {
         public event SendEvent ShakerClicked;
 
-        //[SerializeField] private string _shakeSound;
+        [SerializeField] private EventReference _shakeSound;
+        [SerializeField] private EventReference _icePutSound;
+        [SerializeField] private EventReference _icePutInWaterSound;
         [SerializeField] private Additive[] _additiveOnTable;
         [SerializeField] private Additive _ice;
 
@@ -54,7 +56,7 @@ namespace Cocktails
             }
 
             if (_combinator.MixCoctail(_iceAdded, _selectedIngridients, _selectedAlcohol) == false) return;
-            //RuntimeManager.PlayOneShot(_shakeSound);
+            RuntimeManager.PlayOneShot(_shakeSound);
             Reset();
         }
 
@@ -65,6 +67,10 @@ namespace Cocktails
                 if (_iceAdded == false)
                 {
                     Debug.Log("Add ice");
+                    if (_selectedAlcohol == null)
+                        RuntimeManager.PlayOneShot(_icePutSound);
+                    else
+                        RuntimeManager.PlayOneShot(_icePutInWaterSound);
                     _iceAdded = true;
                     return;
                 }
@@ -81,6 +87,7 @@ namespace Cocktails
                 return;
             }
             _selectedAlcohol = _additiveOnTable[index].Parameters;
+            RuntimeManager.PlayOneShot(_additiveOnTable[index].Sound);
             Debug.Log("Add " + _selectedAlcohol.name);
         }
 
@@ -99,9 +106,11 @@ namespace Cocktails
     [Serializable]
     public class Additive
     {
+        [SerializeField] private EventReference _sound;
         [SerializeField] private CocktailAdditivesSO _parameters;
         [SerializeField] private GameObject _selectedAdditive;
 
+        public EventReference Sound => _sound;
         public CocktailAdditivesSO Parameters => _parameters;
         public GameObject SelectedAdditive => _selectedAdditive;
     }
