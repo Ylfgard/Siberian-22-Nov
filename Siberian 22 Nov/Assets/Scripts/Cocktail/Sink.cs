@@ -32,7 +32,6 @@ namespace Cocktails
         {
             if (_cocktail.CurAlcohol != null || _shaker.SelectedAlcohol != null)
             {
-                _warningText.text = "Штраф за растрату алкоголя! -5";
                 Debug.Log("Штраф за растрату алкоголя!" + _sinkPenalty);
                 _scoreCounter.ChangeScore(_sinkPenalty);
             }

@@ -62,6 +62,7 @@ namespace Cocktails
 
             if (_combinator.MixCoctail(_iceAdded, _selectedIngridients, _selectedAlcohol) == false) return;
             RuntimeManager.PlayOneShot(_shakeSound);
+            ShowAlcoholVFX(_selectedAlcohol);
             Reset();
         }
 
@@ -93,8 +94,7 @@ namespace Cocktails
             }
             _selectedAlcohol = _additiveOnTable[index].Parameters;
             RuntimeManager.PlayOneShot(_additiveOnTable[index].Sound);
-            ShowAlcoholVFX(_selectedAlcohol);
-            _warningText.text = "Налили алкоголь: " + _selectedAlcohol.name;
+            _warningText.text = "Налили алкоголь: " + _selectedAlcohol.Name;
         }
 
         public void AddIngridient(CocktailParametersSO parameters)
@@ -105,7 +105,7 @@ namespace Cocktails
 
         private void ShowAlcoholVFX(CocktailAdditivesSO alcohol)
         {
-            switch (alcohol.name)
+            switch (alcohol.Name)
             {
                 case "Джин":
                     {

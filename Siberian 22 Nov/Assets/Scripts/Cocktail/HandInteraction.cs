@@ -46,8 +46,8 @@ namespace Cocktails
 
         private void TakeIngridient(CocktailParametersSO parameters, GameObject prefab, EventReference reference)
         {
-            _warningText.text = "Выбран ингредиент: " + parameters.name;
-            Debug.Log("Выбран ингредиент " + parameters.name);
+            _warningText.text = "Выбран ингредиент: " + parameters.Name;
+            Debug.Log("Выбран ингредиент " + parameters.Name);
             _selectedIngridient = parameters;
             _selectedIngridientPrefab = prefab;
             _selectedIngridientSound = reference;

@@ -9,6 +9,8 @@ namespace GameControllers
         public event SendEvent ScoreCounted;
 
         [SerializeField] private TextMeshProUGUI _scoreText;
+        [SerializeField] private TextMeshProUGUI _warningText;
+
         private Parameter[] _characterParameters;
         private CocktailAdditivesSO _characterAlcohol;
         private float _score;
@@ -54,9 +56,16 @@ namespace GameControllers
 
         public void ChangeScore(int Value)
         {
+            if(_score > 0) _warningText.text = "Штраф за растрату алкоголя! " + Value;
             _score += Value;
             _scoreText.text = _score.ToString();
             if (_score < 0) _score = 0;
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+                ChangeScore(1);
         }
     }
 }
