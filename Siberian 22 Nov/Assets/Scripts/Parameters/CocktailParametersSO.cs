@@ -8,6 +8,7 @@ public class CocktailParametersSO : ScriptableObject, IRequiredParameters
     [SerializeField] [TextArea] private string _description;
     [SerializeField] private Parameter[] _parameters;
 
+
     public string Name => _name;
     public Parameter[] Parameters => _parameters;
     public string Description => _description;

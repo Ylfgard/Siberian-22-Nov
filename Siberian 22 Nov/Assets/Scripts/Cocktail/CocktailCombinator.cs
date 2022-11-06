@@ -84,7 +84,7 @@ namespace Cocktails
             if (result == null)
                 RuntimeManager.PlayOneShot(_failCocktailSound);
             else
-                RuntimeManager.PlayOneShot(result.Sound);
+                RuntimeManager.PlayOneShot(alcohol.Sound);
             res = _cocktail.PourCocktail(result, alcohol);
             if (res == false)
                 _warningText.text = "Выберите ёмкость для коктейля!";

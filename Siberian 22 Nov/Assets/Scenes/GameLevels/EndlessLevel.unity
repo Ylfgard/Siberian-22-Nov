@@ -3184,6 +3184,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af3f63b3826a6a34e90a95f86f8c103c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _decoreSound:
+    Guid:
+      Data1: 795073068
+      Data2: 1251203447
+      Data3: -760670587
+      Data4: 487971368
+    Path: event:/SFX/Decor
   _decorationHolders:
   - _glassOnTable: {fileID: 1500904731}
     _decorationPoint: {fileID: 1651753446}
@@ -3208,10 +3215,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _failCocktailSound:
     Guid:
-      Data1: 1537389105
-      Data2: 1190699491
-      Data3: 1308227470
-      Data4: 1921372878
+      Data1: 700157977
+      Data2: 1336841404
+      Data3: 930561452
+      Data4: 1482381614
     Path: event:/SFX/ready_cocktails/finish_cocktail_5
   _combinations:
   - {fileID: 11400000, guid: 30deab19e184dfa4e9302bc9fffb544e, type: 2}
@@ -4695,6 +4702,7 @@ GameObject:
   - component: {fileID: 966679890}
   - component: {fileID: 966679891}
   - component: {fileID: 966679892}
+  - component: {fileID: 966679893}
   m_Layer: 0
   m_Name: GameControllers
   m_TagString: Untagged
@@ -4762,11 +4770,41 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -740843983
-      Data2: 1290465584
-      Data3: -651733603
-      Data4: 976134530
-    Path: event:/music/game_music
+      Data1: -1684509168
+      Data2: 1215993352
+      Data3: 1417910950
+      Data4: -579138642
+    Path: event:/Music/Music
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &966679893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966679888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -2136600491
+      Data2: 1160681986
+      Data3: 2125026728
+      Data4: 1037820199
+    Path: event:/AMB/Ambience
   Event: 
   PlayEvent: 1
   StopEvent: 2
