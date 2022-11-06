@@ -19,6 +19,7 @@ namespace Cocktails
         private GameObject _curDecoration;
         private IngridientSelector _ingridientSelector;
         private GlassSelector _glassSelector;
+        private GameObject _selectedIngrParticle;
 
         private void Awake()
         {
@@ -47,15 +48,21 @@ namespace Cocktails
             }
             _selectedIngridient = null;
             _selectedIngridientPrefab = null;
+            if (_selectedIngrParticle != null)
+                _selectedIngrParticle.SetActive(false);
+            _selectedIngrParticle = null;
         }
 
-        private void TakeIngridient(CocktailParametersSO parameters, GameObject prefab, EventReference reference)
+        private void TakeIngridient(CocktailParametersSO parameters, GameObject prefab, EventReference reference, GameObject particle)
         {
             _warningText.text = "Выбран ингредиент: " + parameters.Name;
             Debug.Log("Выбран ингредиент " + parameters.Name);
             _selectedIngridient = parameters;
             _selectedIngridientPrefab = prefab;
             _selectedIngridientSound = reference;
+            if (_selectedIngrParticle != null) _selectedIngrParticle.SetActive(false);
+            _selectedIngrParticle = particle;
+            _selectedIngrParticle.SetActive(true);
         }
 
         private void UseShaker()
@@ -64,6 +71,8 @@ namespace Cocktails
             {
                 _shaker.AddIngridient(_selectedIngridient);
                 RuntimeManager.PlayOneShot(_selectedIngridientSound);
+                _selectedIngrParticle.SetActive(false);
+                _selectedIngrParticle = null;
                 _selectedIngridient = null;
                 _selectedIngridientPrefab = null;
                 return;
@@ -75,11 +84,15 @@ namespace Cocktails
         {
             if (_selectedIngridient == null)
             {
+                Debug.Log("Give");
                 if(_cocktail.GiveCocktail())
                     Reset();
             }
             else
+            {
+                Debug.Log("Add");
                 AddDecoration(_decorationHolders[index]);
+            }
         }
 
         private void AddDecoration(DecorationHolder holder)
@@ -98,6 +111,8 @@ namespace Cocktails
             }
             _curDecoration = decoration;
             RuntimeManager.PlayOneShot(_decoreSound);
+            _selectedIngrParticle.SetActive(false);
+            _selectedIngrParticle = null;
             _cocktail.SetDecoration(_selectedIngridient);
             _selectedIngridient = null;
         }

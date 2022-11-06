@@ -18,6 +18,7 @@ namespace Cocktails
         [SerializeField] private TextMeshProUGUI _warningText;
         [SerializeField] private ParticleSystem[] _alcoholVFX;
 
+        private Animator _animator;
         private CocktailCombinator _combinator;
         private CocktailAdditivesSO _selectedAlcohol;
         private List<CocktailParametersSO> _selectedIngridients;
@@ -28,6 +29,7 @@ namespace Cocktails
         private void Awake()
         {
             _combinator = FindObjectOfType<CocktailCombinator>();
+            _animator = GetComponent<Animator>();
             for (int i = 0; i < _additiveOnTable.Length; i++)
             {
                 var clickable = _additiveOnTable[i].SelectedAdditive.AddComponent<ClickableObject>();
@@ -63,6 +65,7 @@ namespace Cocktails
             if (_combinator.MixCoctail(_iceAdded, _selectedIngridients, _selectedAlcohol) == false) return;
             RuntimeManager.PlayOneShot(_shakeSound);
             ShowAlcoholVFX(_selectedAlcohol);
+            _animator.SetTrigger("Play");
             Reset();
         }
 
@@ -94,6 +97,8 @@ namespace Cocktails
             }
             _selectedAlcohol = _additiveOnTable[index].Parameters;
             RuntimeManager.PlayOneShot(_additiveOnTable[index].Sound);
+            if(_additiveOnTable[index].Animator != null)
+                _additiveOnTable[index].Animator.SetTrigger("Play");
             _warningText.text = "Налили алкоголь: " + _selectedAlcohol.Name;
         }
 
@@ -140,10 +145,12 @@ namespace Cocktails
     [Serializable]
     public class Additive
     {
+        [SerializeField] private Animator _animator;
         [SerializeField] private EventReference _sound;
         [SerializeField] private CocktailAdditivesSO _parameters;
         [SerializeField] private GameObject _selectedAdditive;
 
+        public Animator Animator => _animator;
         public EventReference Sound => _sound;
         public CocktailAdditivesSO Parameters => _parameters;
         public GameObject SelectedAdditive => _selectedAdditive;

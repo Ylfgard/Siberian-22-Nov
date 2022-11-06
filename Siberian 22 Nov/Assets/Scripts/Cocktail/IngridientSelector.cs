@@ -4,7 +4,7 @@ using FMODUnity;
 
 namespace Cocktails
 {
-    public delegate void SendIngridient(CocktailParametersSO Parameter, GameObject Prefab, EventReference Sound);
+    public delegate void SendIngridient(CocktailParametersSO Parameter, GameObject Prefab, EventReference Sound, GameObject Particle);
 
     public class IngridientSelector : MonoBehaviour
     {
@@ -18,12 +18,14 @@ namespace Cocktails
             {
                 var clickable = _ingridients[i].IngridientOnTable.AddComponent<ClickableObject>();
                 clickable.InitializeClick(i, SelectIngridient);
+                _ingridients[i].ParticleSystem.SetActive(false);
             }
         }
 
         private void SelectIngridient(int index)
         {
-            IngridientSelected?.Invoke(_ingridients[index].Parameters, _ingridients[index].Prefab, _ingridients[index].Sound);
+            var ingr = _ingridients[index];
+            IngridientSelected?.Invoke(ingr.Parameters, ingr.Prefab, ingr.Sound, ingr.ParticleSystem);
         }
     }
 
@@ -31,11 +33,13 @@ namespace Cocktails
     public class Ingridient
     {
         [SerializeField] private EventReference _sound;
+        [SerializeField] private GameObject _particleSystem;
         [SerializeField] private GameObject _prefab;
         [SerializeField] private CocktailParametersSO _parameters;
         [SerializeField] private GameObject _ingridientOnTable;
 
         public EventReference Sound => _sound;
+        public GameObject ParticleSystem => _particleSystem;
         public GameObject Prefab => _prefab;
         public CocktailParametersSO Parameters => _parameters;
         public GameObject IngridientOnTable => _ingridientOnTable;

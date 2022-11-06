@@ -122,6 +122,7 @@ namespace Cocktails
         {
             if (_curDecoration != null) ChangeCocktailParameters(_curDecoration.Parameters, false);
             _curDecoration = decoration;
+            if (decoration == null) return;
             ChangeCocktailParameters(_curDecoration.Parameters, true);
         }
 

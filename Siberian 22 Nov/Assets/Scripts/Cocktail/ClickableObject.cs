@@ -9,17 +9,19 @@ namespace Cocktails
         private SendString _callback;
         private event SendString _clicked;
         private int _result;
+        private bool _isSubscrubed;
 
         public void InitializeClick(int result, SendString callback)
         {
              _result = result;
             _callback = callback;
             _clicked += callback;
+            _isSubscrubed = true;
         }
 
         private void OnEnable()
         {
-            if(_callback != null)
+            if(_callback != null && _isSubscrubed == false)
                 _clicked += _callback;
         }
 
@@ -31,6 +33,7 @@ namespace Cocktails
         private void OnDisable()
         {
             _clicked -= _callback;
+            _isSubscrubed = false;
         }
     }
 }
