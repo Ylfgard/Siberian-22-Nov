@@ -58,14 +58,8 @@ namespace GameControllers
         {
             if(_score > 0) _warningText.text = "Штраф за растрату алкоголя! " + Value;
             _score += Value;
-            _scoreText.text = _score.ToString();
             if (_score < 0) _score = 0;
-        }
-
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-                ChangeScore(1);
+            _scoreText.text = _score.ToString();
         }
     }
 }
