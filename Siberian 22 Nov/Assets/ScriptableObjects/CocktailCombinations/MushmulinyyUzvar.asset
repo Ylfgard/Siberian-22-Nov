@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f5ba1f587a448540b33f262d1be088c, type: 3}
-  m_Name: CocktailOne
+  m_Name: MushmulinyyUzvar
   m_EditorClassIdentifier: 
   _sound:
     Guid:

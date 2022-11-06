@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 20bfca7b9aa61474bacaf68f19d5855d, type: 3}
-  m_Name: "\u0411\u0443\u0442\u043E\u043D \u0444\u0438\u043E\u043B\u0435\u0442\u043E\u0432\u043E\u0433\u043E
-    \u0446\u0432\u0435\u0442\u043A\u0430"
+  m_Name: Ino-sauer
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 9171889966244380137, guid: ffc2a6c0684eeda438431d31f305ee6a, type: 3}
+  _name: "\u0418\u043D\u043E-\u0441\u0430\u0443\u044D\u0440"
+  _description: "\u0418\u043D\u043E-\u0441\u0430\u0443\u044D\u0440"
   _parameters:
   - _name: Aristocrate
-    _value: 1
+    _value: 2
   - _name: BadGuy
     _value: 0
   - _name: Homely

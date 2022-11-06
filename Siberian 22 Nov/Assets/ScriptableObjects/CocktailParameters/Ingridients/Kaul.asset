@@ -9,15 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9f1d6b586d14c0469cc69527ba0ce65, type: 3}
-  m_Name: "\u041A\u0438\u0441\u043A\u0438"
+  m_Script: {fileID: 11500000, guid: 20bfca7b9aa61474bacaf68f19d5855d, type: 3}
+  m_Name: Kaul
   m_EditorClassIdentifier: 
+  _name: "\u041A\u0430\u0443\u043B\u044C"
+  _description: "\u0414\u043E\u043B\u044C\u043A\u0430 \u0438\u043D\u043E\u043F\u043B\u0430\u043D\u0435\u0442\u043D\u043E\u0433\u043E
+    \u0444\u0440\u0443\u043A\u0442\u0430"
   _parameters:
   - _name: Aristocrate
     _value: 0
   - _name: BadGuy
     _value: 0
   - _name: Homely
-    _value: 1
-  - _name: PartyAnimal
     _value: 0
+  - _name: PartyAnimal
+    _value: 1

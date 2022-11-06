@@ -9,14 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9f1d6b586d14c0469cc69527ba0ce65, type: 3}
-  m_Name: "\u0410\u0439\u0441\u0431\u0435\u0440\u0433"
+  m_Script: {fileID: 11500000, guid: 20bfca7b9aa61474bacaf68f19d5855d, type: 3}
+  m_Name: AlienEgg
   m_EditorClassIdentifier: 
+  _name: "\u042F\u0439\u0446\u043E \u0447\u0443\u0436\u043E\u0433\u043E"
+  _description: "\u042F\u0439\u0446\u043E \u0447\u0443\u0436\u043E\u0433\u043E"
   _parameters:
   - _name: Aristocrate
-    _value: 1
-  - _name: BadGuy
     _value: 0
+  - _name: BadGuy
+    _value: 1
   - _name: Homely
     _value: 0
   - _name: PartyAnimal
