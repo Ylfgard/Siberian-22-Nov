@@ -1,13 +1,17 @@
 using UnityEngine;
 using System.Collections.Generic;
+using FMODUnity;
 
 [CreateAssetMenu (fileName = "NewAdditive", menuName = "ScriptableObject/CocktailAdditive")]
 public class CocktailAdditivesSO : ScriptableObject, IRequiredParameters
 {
+    [SerializeField] EventReference _sound;
     [SerializeField] private string _name;
     [SerializeField] [TextArea] string _description;
     [SerializeField] private List<Parameter> _parameters;
 
+
+    public EventReference Sound => _sound;
     public string Name => _name;
     public string Description => _description;
     public List<Parameter> Parameters => _parameters;

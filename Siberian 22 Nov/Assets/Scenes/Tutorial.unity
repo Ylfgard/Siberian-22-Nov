@@ -4060,10 +4060,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _failCocktailSound:
     Guid:
-      Data1: 1537389105
-      Data2: 1190699491
-      Data3: 1308227470
-      Data4: 1921372878
+      Data1: 700157977
+      Data2: 1336841404
+      Data3: 930561452
+      Data4: 1482381614
     Path: event:/SFX/ready_cocktails/finish_cocktail_5
   _combinations:
   - {fileID: 11400000, guid: 30deab19e184dfa4e9302bc9fffb544e, type: 2}
