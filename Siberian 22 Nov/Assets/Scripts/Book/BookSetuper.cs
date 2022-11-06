@@ -66,7 +66,7 @@ namespace Book
         public void OpenBook()
         {
             _bookBody.SetActive(true);
-            Time.timeScale = 0.5f;
+            Time.timeScale = 0.2f;
             Physics.queriesHitTriggers = false;
             OnEventOpenedBook?.Invoke();
         }

@@ -90,6 +90,12 @@ public class MenuSystem: MonoBehaviour
         SceneManager.LoadScene(_newGameLevel);
     }
 
+    public void StartingLevel(string levelName)
+    {
+        PlayerPrefs.SetInt("AddedResolutions", 1);
+        SceneManager.LoadScene(levelName);
+    }
+
     public void ExitGame()
     {
         Application.Quit();

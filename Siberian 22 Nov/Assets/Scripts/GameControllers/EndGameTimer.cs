@@ -11,13 +11,17 @@ namespace GameControllers
         [SerializeField] private TextMeshProUGUI _timerText;
         [SerializeField] private float _timeLimitInSeconds;
 
+        private ScoreCounter _scoreCounter;
         private float _time;
         private bool _timerStoped;
 
         private void Awake()
         {
             if (_endlessLevel)
-                FindObjectOfType<ScoreCounter>().ScoreChanged += ChangeRestTime;
+            {
+                _scoreCounter = FindObjectOfType<ScoreCounter>();
+                _scoreCounter.ScoreChanged += ChangeRestTime;
+            }
         }
 
         private void Start()
@@ -47,8 +51,16 @@ namespace GameControllers
             if (_time <= 0)
             {
                 _timerStoped = true;
+                _time = 0;
+                _timerText.text = Mathf.RoundToInt(_time).ToString();
                 TimesOut?.Invoke();
             }
+        }
+
+        private void OnDisable()
+        {
+            if (_endlessLevel)
+                _scoreCounter.ScoreChanged -= ChangeRestTime;
         }
     }
 }
