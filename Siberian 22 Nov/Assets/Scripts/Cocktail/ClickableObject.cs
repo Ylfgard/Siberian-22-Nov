@@ -17,6 +17,12 @@ namespace Cocktails
             _clicked += callback;
         }
 
+        private void OnEnable()
+        {
+            if(_callback != null)
+                _clicked += _callback;
+        }
+
         private void OnMouseDown()
         {
             _clicked?.Invoke(_result);

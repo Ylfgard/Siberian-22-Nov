@@ -81,13 +81,13 @@ namespace Cocktails
                     }
                 }
             }
-            if (result == null)
-                RuntimeManager.PlayOneShot(_failCocktailSound);
-            else
-                RuntimeManager.PlayOneShot(alcohol.Sound);
             res = _cocktail.PourCocktail(result, alcohol);
             if (res == false)
                 _warningText.text = "Выберите ёмкость для коктейля!";
+            if (result == null && res != false)
+                RuntimeManager.PlayOneShot(_failCocktailSound);
+            else
+                RuntimeManager.PlayOneShot(alcohol.Sound);
             return res;
         }
     }
