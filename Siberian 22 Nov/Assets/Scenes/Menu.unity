@@ -4540,7 +4540,7 @@ MonoBehaviour:
       Data3: -2017289287
       Data4: 1848519010
     Path: event:/music/Menu_music
-  Event: event:/music menu
+  Event: 
   PlayEvent: 1
   StopEvent: 2
   AllowFadeout: 1

@@ -8,6 +8,7 @@ namespace Cocktails
 {
     public class HandInteraction : MonoBehaviour, IResetable
     {
+        [SerializeField] EventReference _decoreSound;
         [SerializeField] private DecorationHolder[] _decorationHolders;
         [SerializeField] private TextMeshProUGUI _warningText;
         private Cocktail _cocktail;
@@ -96,6 +97,7 @@ namespace Cocktails
                 holder.Decorations.Add(_selectedIngridient.name, decoration);
             }
             _curDecoration = decoration;
+            RuntimeManager.PlayOneShot(_decoreSound);
             _cocktail.SetDecoration(_selectedIngridient);
             _selectedIngridient = null;
         }
