@@ -31,9 +31,9 @@ namespace Cocktails
             Reset();
         }
 
-#if UNITY_EDITOR
-        [ContextMenu("Find Parameters")]
-#endif
+//#if UNITY_EDITOR
+//        [ContextMenu("Find Parameters")]
+//#endif
         private void FindParameters()
         {
             string[] parametrsGUID = AssetDatabase.FindAssets("t:ParameterSO", new[] { "Assets/ScriptableObjects/Parameters" });

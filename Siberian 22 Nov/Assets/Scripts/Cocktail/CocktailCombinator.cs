@@ -18,19 +18,19 @@ namespace Cocktails
             _cocktail = FindObjectOfType<Cocktail>();
         }
 
-#if UNITY_EDITOR
-        [ContextMenu("Find Combinations")]
-#endif
-        private void FindCombinations()
-        {
-            string[] combinationsGUID = AssetDatabase.FindAssets("t:CocktailCombinationSO", new[] { "Assets/ScriptableObjects/CocktailCombinations" });
-            List<string> combinationsPaths = new List<string>();
-            foreach (string GUID in combinationsGUID)
-                combinationsPaths.Add(AssetDatabase.GUIDToAssetPath(GUID));
-            _combinations = new List<CocktailCombinationSO>();
-            foreach (string path in combinationsPaths)
-                _combinations.Add(AssetDatabase.LoadAssetAtPath(path, typeof(CocktailCombinationSO)) as CocktailCombinationSO);
-        }
+//#if UNITY_EDITOR
+//        [ContextMenu("Find Combinations")]
+//#endif
+        //private void FindCombinations()
+        //{
+        //    string[] combinationsGUID = AssetDatabase.FindAssets("t:CocktailCombinationSO", new[] { "Assets/ScriptableObjects/CocktailCombinations" });
+        //    List<string> combinationsPaths = new List<string>();
+        //    foreach (string GUID in combinationsGUID)
+        //        combinationsPaths.Add(AssetDatabase.GUIDToAssetPath(GUID));
+        //    _combinations = new List<CocktailCombinationSO>();
+        //    foreach (string path in combinationsPaths)
+        //        _combinations.Add(AssetDatabase.LoadAssetAtPath(path, typeof(CocktailCombinationSO)) as CocktailCombinationSO);
+        //}
 
         public bool MixCoctail(bool ice, List<CocktailParametersSO> ingridients, CocktailAdditivesSO alcohol)
         {

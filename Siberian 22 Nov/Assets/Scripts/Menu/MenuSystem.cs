@@ -20,7 +20,7 @@ public class MenuSystem: MonoBehaviour
 
     [SerializeField] private TMP_Dropdown _gameModeDropdown;
 
-    [SerializeField] [EventRef] private string _buttonPushSound;
+    [SerializeField] private EventReference _buttonPushSound;
 
     [SerializeField] private int qualityLevel;
     [SerializeField] private bool isFullScreen;
