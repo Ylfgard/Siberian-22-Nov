@@ -43,6 +43,14 @@ namespace Cocktails
         {
             _restart?.Invoke();
         }
+
+        private void OnDisable()
+        {
+            _scoreCounter.ScoreCounted -= ResetTable;
+            var resetableObjects = FindObjectsOfType<MonoBehaviour>().OfType<IResetable>().ToArray();
+            foreach (var resetable in resetableObjects)
+                _restart -= resetable.Reset;
+        }
     }
     
     public interface IResetable

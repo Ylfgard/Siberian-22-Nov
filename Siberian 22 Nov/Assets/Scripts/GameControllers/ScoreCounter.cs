@@ -18,6 +18,8 @@ namespace GameControllers
         private CocktailAdditivesSO _characterAlcohol;
         private float _score;
 
+        public int Score => Mathf.RoundToInt(_score);
+
 
         private void Awake()
         {
@@ -51,7 +53,7 @@ namespace GameControllers
             }
 
             if(_endlessLevel) 
-                ScoreChanged?.Invoke(result * 10);
+                ScoreChanged?.Invoke(result * 4);
             else
                 _score += result * 10;
 

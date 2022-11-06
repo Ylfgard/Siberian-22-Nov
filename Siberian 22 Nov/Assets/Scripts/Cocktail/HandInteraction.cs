@@ -16,12 +16,16 @@ namespace Cocktails
         private GameObject _selectedIngridientPrefab;
         private EventReference _selectedIngridientSound;
         private GameObject _curDecoration;
+        private IngridientSelector _ingridientSelector;
+        private GlassSelector _glassSelector;
 
         private void Awake()
         {
             _cocktail = FindObjectOfType<Cocktail>();
-            FindObjectOfType<GlassSelector>().GlassChanged += RemoveDecoration;
-            FindObjectOfType<IngridientSelector>().IngridientSelected += TakeIngridient;
+            _glassSelector = FindObjectOfType<GlassSelector>();
+            _glassSelector.GlassChanged += RemoveDecoration;
+            _ingridientSelector = FindObjectOfType<IngridientSelector>();
+            _ingridientSelector.IngridientSelected += TakeIngridient;
             _shaker = FindObjectOfType<Shaker>();
             _shaker.ShakerClicked += UseShaker;
             for (int i = 0; i < _decorationHolders.Length; i++)
@@ -102,6 +106,13 @@ namespace Cocktails
             _cocktail.SetDecoration(null);
             _curDecoration.SetActive(false);
             _curDecoration = null;
+        }
+
+        private void OnDisable()
+        {
+            _glassSelector.GlassChanged -= RemoveDecoration;
+            _ingridientSelector.IngridientSelected -= TakeIngridient;
+            _shaker.ShakerClicked -= UseShaker;
         }
     }
 
