@@ -1,5 +1,6 @@
 using UnityEngine;
 using Cocktails;
+using TMPro;
 
 namespace GameControllers
 {
@@ -7,9 +8,11 @@ namespace GameControllers
     {
         public event SendEvent ScoreCounted;
 
+        [SerializeField] private TextMeshProUGUI _scoreText;
         private Parameter[] _characterParameters;
         private CocktailAdditivesSO _characterAlcohol;
         private float _score;
+
 
         private void Awake()
         {
@@ -45,12 +48,14 @@ namespace GameControllers
             if (_score < 0) 
                 _score = 0;
             Debug.Log(_score + " Alcohol: " + (_characterAlcohol == alcohol).ToString());
+            _scoreText.text = _score.ToString();
             ScoreCounted?.Invoke();
         }
 
         public void ChangeScore(int Value)
         {
             _score += Value;
+            _scoreText.text = _score.ToString();
             if (_score < 0) _score = 0;
         }
     }

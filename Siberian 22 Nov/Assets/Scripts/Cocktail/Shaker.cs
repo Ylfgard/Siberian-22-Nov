@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System;
 using FMODUnity;
+using TMPro;
 
 namespace Cocktails
 {
@@ -14,6 +15,8 @@ namespace Cocktails
         [SerializeField] private EventReference _icePutInWaterSound;
         [SerializeField] private Additive[] _additiveOnTable;
         [SerializeField] private Additive _ice;
+        [SerializeField] private TextMeshProUGUI _warningText;
+        [SerializeField] private ParticleSystem[] _alcoholVFX;
 
         private CocktailCombinator _combinator;
         private CocktailAdditivesSO _selectedAlcohol;
@@ -46,11 +49,13 @@ namespace Cocktails
         {
             if (_selectedAlcohol == null)
             {
+                _warningText.text = "Добавьте алкоголь!";
                 Debug.Log("Добавьте алкоголь!");
                 return;
             }
             if (_iceAdded == false && _selectedIngridients.Count <= 0)
             {
+                _warningText.text = "Не хватает ингредиентов!";
                 Debug.Log("Не хватает ингридиентов!");
                 return;
             }
@@ -66,7 +71,7 @@ namespace Cocktails
             {
                 if (_iceAdded == false)
                 {
-                    Debug.Log("Add ice");
+                    _warningText.text = "Добавлен лёд";
                     if (_selectedAlcohol == null)
                         RuntimeManager.PlayOneShot(_icePutSound);
                     else
@@ -76,25 +81,54 @@ namespace Cocktails
                 }
                 else
                 {
-                    Debug.Log("Вы уже добавили лёд!");
+                    _warningText.text = "Вы уже добавили лёд!";
                     return;
-                } 
+                }
             }
-            
-            if(_selectedAlcohol != null)
+
+            if (_selectedAlcohol != null)
             {
-                Debug.Log("Вы уже налили алкоголь!");
+                _warningText.text = "Вы уже налили алкоголь!";
                 return;
             }
             _selectedAlcohol = _additiveOnTable[index].Parameters;
             RuntimeManager.PlayOneShot(_additiveOnTable[index].Sound);
-            Debug.Log("Add " + _selectedAlcohol.name);
+            ShowAlcoholVFX(_selectedAlcohol);
+            _warningText.text = "Налили алкоголь: " + _selectedAlcohol.name;
         }
 
         public void AddIngridient(CocktailParametersSO parameters)
         {
-            Debug.Log("Add " + parameters.name + " ingridient");
+            _warningText.text = "Смешали игредиенты и алкоголь";
             _selectedIngridients.Add(parameters);
+        }
+
+        private void ShowAlcoholVFX(CocktailAdditivesSO alcohol)
+        {
+            switch (alcohol.name)
+            {
+                case "Джин":
+                    {
+                        _alcoholVFX[0].Play();
+                        _alcoholVFX[1].Play();
+                        break;
+                    }
+                case "Киски":
+                    {
+                        _alcoholVFX[2].Play();
+                        break;
+                    }
+                case "Зелёная Ведьма":
+                    {
+                        _alcoholVFX[3].Play();
+                        break;
+                    }
+                case "Айсберг":
+                    {
+                        _alcoholVFX[4].Play();
+                        break;
+                    }
+            }
         }
 
         private void OnMouseDown()

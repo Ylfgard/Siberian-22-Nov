@@ -9,6 +9,8 @@ public class CharacterGenerator : MonoBehaviour
     [SerializeField] private List<Character> _listCharacters;
     [SerializeField] private CharacterInfo _characterInfo;
 
+    [SerializeField] private List<GameObject> _characterGameObjects;
+
     private void Awake()
     {
         _characterInfo = GetComponent<CharacterInfo>();
@@ -19,8 +21,13 @@ public class CharacterGenerator : MonoBehaviour
         InstantiateCharacter();
     }
 
-    private void InstantiateCharacter()
+    public void InstantiateCharacter()
     {
+        if (_characterGameObjects.Count != 0)
+        {
+            DestroyPreviousCharacter();
+        }
+
         Character character = _listCharacters[UnityEngine.Random.Range(0, _listCharacters.Count)];
 
         Preset preset = character.GetRandomPreset();
@@ -30,17 +37,17 @@ public class CharacterGenerator : MonoBehaviour
 
         if (preset != null)
         {
-            Instantiate(preset.GO);
+            _characterGameObjects.Add(Instantiate(preset.GO));
         }
 
         if (object1 != null)
         {
-            Instantiate(object1.GO);
+            _characterGameObjects.Add(Instantiate(object1.GO));
         }
 
         if (object2 != null)
         {
-            Instantiate(object2.GO);
+            _characterGameObjects.Add(Instantiate(object2.GO));
         }
 
         SetAllInfo(preset, object1, object2, question);
@@ -48,8 +55,8 @@ public class CharacterGenerator : MonoBehaviour
 
     private void SetAllInfo(Preset preset, Object object1, Object object2, Question question)
     {
-        _characterInfo.SetCharacterInfo(preset.GO.GetComponent<QuestionTrigger>(), question.Description, CountParameterScore(preset, object1, object2), question.Alcohol);
-        Debug.Log(question.Description);
+        _characterInfo.SetCharacterInfo(_characterGameObjects[0].GetComponent<QuestionTrigger>(),
+         question.Description, CountParameterScore(preset, object1, object2), question.Alcohol);
     }
 
     private Parameter[] CountParameterScore(Preset preset, Object object1, Object object2)
@@ -58,10 +65,19 @@ public class CharacterGenerator : MonoBehaviour
 
         for (int i = 0; i < result.Length; i++)
         {
-            result[i]  = new Parameter(preset.PresetParameter.Parameters[i].Name, preset.PresetParameter.Parameters[i].Value + object1.ObjectParameter.Parameters[i].Value + object2.ObjectParameter.Parameters[i].Value);
+            result[i] = new Parameter(preset.PresetParameter.Parameters[i].Name, preset.PresetParameter.Parameters[i].Value + object1.ObjectParameter.Parameters[i].Value + object2.ObjectParameter.Parameters[i].Value);
         }
 
         return result;
+    }
+
+    private void DestroyPreviousCharacter()
+    {
+        foreach (GameObject GO in _characterGameObjects)
+        {
+            Destroy(GO);
+        }
+        _characterGameObjects.Clear();
     }
 }
 

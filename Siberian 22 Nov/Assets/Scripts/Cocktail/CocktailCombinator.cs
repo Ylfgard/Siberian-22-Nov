@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
 using FMODUnity;
+using TMPro;
 
 namespace Cocktails
 {
@@ -9,7 +10,7 @@ namespace Cocktails
     {
         [SerializeField] private EventReference _failCocktailSound;
         [SerializeField] private List<CocktailCombinationSO> _combinations;
-
+        [SerializeField] private TextMeshProUGUI _warningText;
         private Cocktail _cocktail;
 
         private void Awake()
@@ -37,14 +38,15 @@ namespace Cocktails
             CocktailCombinationSO result = null;
             if (_cocktail.CurAlcohol != null)
             {
+                _warningText.text = "Коктейль уже налит!";
                 Debug.Log("Коктейль уже налит!");
                 return false;
             }
             if (ingridients.Count <= 0)
             {
                 res = _cocktail.PourCocktail(result, alcohol);
-                if (res == false) 
-                    Debug.Log("Выберите ёмкость для коктейля!");
+                if (res == false)
+                    _warningText.text = "Выберите ёмкость для коктейля!";
                 return res;
             }
             
@@ -85,7 +87,7 @@ namespace Cocktails
                 RuntimeManager.PlayOneShot(result.Sound);
             res = _cocktail.PourCocktail(result, alcohol);
             if (res == false)
-                Debug.Log("Выберите ёмкость для коктейля!");
+                _warningText.text = "Выберите ёмкость для коктейля!";
             return res;
         }
     }
