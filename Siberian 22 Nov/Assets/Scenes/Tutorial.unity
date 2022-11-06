@@ -1155,6 +1155,8 @@ GameObject:
   m_Component:
   - component: {fileID: 242300679}
   - component: {fileID: 242300677}
+  - component: {fileID: 242300681}
+  - component: {fileID: 242300680}
   m_Layer: 0
   m_Name: GameControllers
   m_TagString: Untagged
@@ -1192,6 +1194,66 @@ Transform:
   m_Father: {fileID: 1448884009}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &242300680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 242300676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -2136600491
+      Data2: 1160681986
+      Data3: 2125026728
+      Data4: 1037820199
+    Path: event:/AMB/Ambience
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &242300681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 242300676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1684509168
+      Data2: 1215993352
+      Data3: 1417910950
+      Data4: -579138642
+    Path: event:/Music/Music
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &272529156
 GameObject:
   m_ObjectHideFlags: 0
@@ -5451,11 +5513,11 @@ MonoBehaviour:
   _dialogText: {fileID: 497875696}
   _succesSound:
     Guid:
-      Data1: -224396773
-      Data2: 1254498790
-      Data3: -1273358146
-      Data4: 971033596
-    Path: event:/SFX/page
+      Data1: 93862499
+      Data2: 1316180874
+      Data3: -683168588
+      Data4: -934189889
+    Path: event:/UI/points_plus_1
   _book: {fileID: 1209897515}
   _cocktail: {fileID: 1132823411}
   _resultCocktails:
@@ -5731,6 +5793,26 @@ PrefabInstance:
     - target: {fileID: 7990840894134679925, guid: c04fd81e2da3c7d4cba39afc12419eb8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7990840894134679927, guid: c04fd81e2da3c7d4cba39afc12419eb8, type: 3}
+      propertyPath: EventReference.Path
+      value: snapshot:/Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 7990840894134679927, guid: c04fd81e2da3c7d4cba39afc12419eb8, type: 3}
+      propertyPath: EventReference.Guid.Data1
+      value: 2129871975
+      objectReference: {fileID: 0}
+    - target: {fileID: 7990840894134679927, guid: c04fd81e2da3c7d4cba39afc12419eb8, type: 3}
+      propertyPath: EventReference.Guid.Data2
+      value: 1207904360
+      objectReference: {fileID: 0}
+    - target: {fileID: 7990840894134679927, guid: c04fd81e2da3c7d4cba39afc12419eb8, type: 3}
+      propertyPath: EventReference.Guid.Data3
+      value: -453646425
+      objectReference: {fileID: 0}
+    - target: {fileID: 7990840894134679927, guid: c04fd81e2da3c7d4cba39afc12419eb8, type: 3}
+      propertyPath: EventReference.Guid.Data4
+      value: -1285892686
       objectReference: {fileID: 0}
     - target: {fileID: 7990840895094967762, guid: c04fd81e2da3c7d4cba39afc12419eb8, type: 3}
       propertyPath: m_SizeDelta.x
@@ -6769,6 +6851,36 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2291627301262098675, guid: 76b9e3c3c0027564aa39e5e11a88fd60, type: 3}
   m_PrefabInstance: {fileID: 1432339107}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1432339112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432339109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 2129871975
+      Data2: 1207904360
+      Data3: -453646425
+      Data4: -1285892686
+    Path: snapshot:/Menu
+  Event: 
+  PlayEvent: 11
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &1448884008
 GameObject:
   m_ObjectHideFlags: 0
