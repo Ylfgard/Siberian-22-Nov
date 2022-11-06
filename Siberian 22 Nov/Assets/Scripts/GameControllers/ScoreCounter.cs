@@ -57,7 +57,7 @@ namespace GameControllers
 
             if (_score < 0) 
                 _score = 0;
-            Debug.Log(_score + " Alcohol: " + (_characterAlcohol == alcohol).ToString());
+            Debug.Log(_score + " Алкоголь: " + (_characterAlcohol == alcohol).ToString());
             _scoreText.text = _score.ToString();
             ScoreCounted?.Invoke();
         }
