@@ -9,6 +9,9 @@ namespace Book
 {
     public class BookSetuper : MonoBehaviour
     {
+        public delegate void OpenedBook();
+        public event OpenedBook OnEventOpenedBook;
+
         [SerializeField] private GameObject _bookBody;
         [SerializeField] private ParameterValueText[] _parametersValueText;
         [SerializeField] private TextMeshProUGUI _discription;
@@ -65,6 +68,7 @@ namespace Book
             _bookBody.SetActive(true);
             Time.timeScale = 0.2f;
             Physics.queriesHitTriggers = false;
+            OnEventOpenedBook?.Invoke();
         }
 
         public void CloseBook()
