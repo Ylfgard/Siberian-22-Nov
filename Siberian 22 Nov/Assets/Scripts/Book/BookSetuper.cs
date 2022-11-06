@@ -7,7 +7,7 @@ using Cocktails;
 
 namespace Book
 {
-    public class Book : MonoBehaviour
+    public class BookSetuper : MonoBehaviour
     {
         public delegate void OpenedBook();
         public event OpenedBook OnEventOpenedBook;
