@@ -22,6 +22,7 @@ public class TutorialManager : MonoBehaviour, IResetable
     [SerializeField] private CocktailAdditivesSO _cocktailAdditivesSO;
     [SerializeField] private Sink _sink;
     [SerializeField] private GameObject _pointer;
+    [SerializeField] private GameObject _menuButton;
 
     private void Start()
     {
@@ -92,6 +93,7 @@ public class TutorialManager : MonoBehaviour, IResetable
         {
 
             _dialogText.text = _tutorialText[4];
+            _menuButton.SetActive(true);
             RuntimeManager.PlayOneShot(_succesSound);
         }
     }

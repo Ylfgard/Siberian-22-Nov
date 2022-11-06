@@ -10,6 +10,7 @@ public class CharacterGenerator : MonoBehaviour
     [SerializeField] private CharacterInfo _characterInfo;
 
     [SerializeField] private List<GameObject> _characterGameObjects;
+    [SerializeField] private List<Vector3> _monocleVectors;
 
     private void Awake()
     {
