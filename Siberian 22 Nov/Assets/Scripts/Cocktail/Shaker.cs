@@ -118,7 +118,7 @@ namespace Cocktails
                         _alcoholVFX[2].Play();
                         break;
                     }
-                case "Зелёная Ведьма":
+                case "Зелёная ведьма":
                     {
                         _alcoholVFX[3].Play();
                         break;
