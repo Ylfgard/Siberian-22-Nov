@@ -10,6 +10,7 @@ namespace Cocktails
 {
     public class Cocktail : MonoBehaviour, IResetable
     {
+        public event Action<CocktailCombinationSO, CocktailAdditivesSO, ParameterInCocktail[]> OnPouredCocktail;
         //[SerializeField] private EventReference _cocktailFinish;
         [SerializeField] private ParameterInCocktail[] _parameterInCocktails;
         [SerializeField] private TextMeshProUGUI _warningText;
@@ -113,6 +114,7 @@ namespace Cocktails
             _curCocktailCombination = combination;
             _curAlcohol = alcohol;
             ChangeCocktailParameters(_curAlcohol.Parameters.ToArray(), true);
+            OnPouredCocktail?.Invoke(combination, alcohol, _parameterInCocktails);
             return true;
         }
 
