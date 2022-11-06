@@ -10,7 +10,6 @@ public class CharacterGenerator : MonoBehaviour
     [SerializeField] private CharacterInfo _characterInfo;
 
     [SerializeField] private List<GameObject> _characterGameObjects;
-    [SerializeField] private List<Vector3> _monocleVectors;
 
     private void Awake()
     {
@@ -41,13 +40,16 @@ public class CharacterGenerator : MonoBehaviour
             _characterGameObjects.Add(Instantiate(preset.GO));
         }
 
-        if (object1 != null)
+        if (object1 != object2)
         {
             _characterGameObjects.Add(Instantiate(object1.GO));
+            _characterGameObjects.Add(Instantiate(object2.GO));
         }
-
-        if (object2 != null)
+        else
         {
+            object1 = character.GetRandomObjects(0, 2);
+            object2 = character.GetRandomObjects(2, 3);
+            _characterGameObjects.Add(Instantiate(object1.GO));
             _characterGameObjects.Add(Instantiate(object2.GO));
         }
 
@@ -102,6 +104,13 @@ public class Character
         if (_objects.Count == 0) return null;
 
         return _objects[UnityEngine.Random.Range(0, _objects.Count)];
+    }
+       
+    public Object GetRandomObjects(int index, int indexEnd)
+    {
+        if (_objects.Count == 0) return null;
+
+        return _objects[UnityEngine.Random.Range(index, indexEnd)];
     }
 
     public Question GetRandomQuestion()
