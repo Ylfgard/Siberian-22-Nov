@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using FMODUnity;
 
 namespace GameControllers
 {
@@ -17,6 +18,7 @@ namespace GameControllers
         private Parameter[] _characterParameters;
         private CocktailAdditivesSO _characterAlcohol;
         private float _score;
+        private EventReference _curLeaveSound;
 
         public int Score => Mathf.RoundToInt(_score);
 
@@ -24,6 +26,13 @@ namespace GameControllers
         private void Awake()
         {
             _score = 0;
+        }
+
+        public void SetCharacterParameters(Parameter[] parameters, CocktailAdditivesSO alcohol, EventReference leaveSound)
+        {
+            _characterParameters = parameters;
+            _characterAlcohol = alcohol;
+            _curLeaveSound = leaveSound;
         }
 
         public void SetCharacterParameters(Parameter[] parameters, CocktailAdditivesSO alcohol)
@@ -61,6 +70,11 @@ namespace GameControllers
                 _score = 0;
             Debug.Log(_score + " Алкоголь: " + (_characterAlcohol == alcohol).ToString());
             _scoreText.text = _score.ToString();
+            if (_curLeaveSound.IsNull == false)
+            {
+                Debug.Log("Sound");
+                RuntimeManager.PlayOneShot(_curLeaveSound);
+            }
             ScoreCounted?.Invoke();
         }
 

@@ -80,6 +80,7 @@ namespace Cocktails
                         RuntimeManager.PlayOneShot(_icePutSound);
                     else
                         RuntimeManager.PlayOneShot(_icePutInWaterSound);
+                    _ice.Animator.SetTrigger("Play");
                     _iceAdded = true;
                     return;
                 }

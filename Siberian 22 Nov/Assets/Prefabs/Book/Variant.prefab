@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8619189931814128801}
   - component: {fileID: 8619189931814128802}
   - component: {fileID: 7226370735106723882}
+  - component: {fileID: -5910751406559842886}
   m_Layer: 0
   m_Name: Variant
   m_TagString: Untagged
@@ -122,7 +123,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8619189931814128801}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -5910751406559842886}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7226370735106723882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,6 +152,36 @@ MonoBehaviour:
   _description: 
   _descriptionTMPro: {fileID: 0}
   _parametersValueDislays: []
+--- !u!114 &-5910751406559842886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8619189931814128828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -759991498
+      Data2: 1262896833
+      Data3: 513702032
+      Data4: 2019200254
+    Path: event:/UI/hover
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &8619189933184011898
 GameObject:
   m_ObjectHideFlags: 0

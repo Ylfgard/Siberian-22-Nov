@@ -341,7 +341,7 @@ MonoBehaviour:
     _parameters: {fileID: 11400000, guid: 919a6b32b003b3d4b965658f097eecb5, type: 2}
     _selectedAdditive: {fileID: 2092111877}
   _ice:
-    _animator: {fileID: 0}
+    _animator: {fileID: 644973416}
     _sound:
       Guid:
         Data1: 0
@@ -1682,6 +1682,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _listCharacters:
   - _name: Girl
+    _come:
+      Guid:
+        Data1: -316196315
+        Data2: 1093759896
+        Data3: -425512540
+        Data4: -175766232
+      Path: event:/Voice/guests/guest_came_1
+    _leave:
+      Guid:
+        Data1: -611252725
+        Data2: 1277290640
+        Data3: -1487278182
+        Data4: -1128916997
+      Path: event:/Voice/guests/guest_gone_1
     _presets:
     - _preset: {fileID: 2793957569162364436, guid: 272264059995528449d3a85043be195d, type: 3}
       _parameter: {fileID: 11400000, guid: 5cf37cc659f57ee46b954fa837569777, type: 2}
@@ -1721,6 +1735,20 @@ MonoBehaviour:
         \u0412\u0438\u0432\u0438\u044E \u043D\u0430 \u0432\u043A\u0443\u0441..."
       _alcohol: {fileID: 11400000, guid: bf0d2617fa27edc45be54c4089249ebf, type: 2}
   - _name: Snail
+    _come:
+      Guid:
+        Data1: -6203700
+        Data2: 1330233915
+        Data3: -1225880933
+        Data4: 549682244
+      Path: event:/Voice/guests/guest_came_3
+    _leave:
+      Guid:
+        Data1: -1431115633
+        Data2: 1305507567
+        Data3: -1641432904
+        Data4: -133254750
+      Path: event:/Voice/guests/guest_gone_3
     _presets:
     - _preset: {fileID: 8986293434984019623, guid: 27d943e743d0d5443896c4ed71ae5d80, type: 3}
       _parameter: {fileID: 11400000, guid: b4b203274cad1014597666bcf7824539, type: 2}
@@ -1757,6 +1785,20 @@ MonoBehaviour:
         \u043F\u0440\u043E\u0431\u043B\u0435\u043C\u044B.*"
       _alcohol: {fileID: 11400000, guid: 919a6b32b003b3d4b965658f097eecb5, type: 2}
   - _name: GrumpyBoy
+    _come:
+      Guid:
+        Data1: 918171713
+        Data2: 1174927330
+        Data3: -322213226
+        Data4: 2145662449
+      Path: event:/Voice/guests/guest_came_4
+    _leave:
+      Guid:
+        Data1: 1438862879
+        Data2: 1219516606
+        Data3: -1219520343
+        Data4: 67715639
+      Path: event:/Voice/guests/guest_gone_4
     _presets:
     - _preset: {fileID: 5508991893549575210, guid: 1f16cfa6cea6cff4094adbf55eaeb2a5, type: 3}
       _parameter: {fileID: 11400000, guid: 7534fc8c98d83b94bb7b58c9c977a582, type: 2}
@@ -1788,6 +1830,20 @@ MonoBehaviour:
     - _question: "\u0425\u043E\u0447\u0443 \u043F\u0443\u0437\u044B\u0440\u044C\u043A\u043E\u0432."
       _alcohol: {fileID: 11400000, guid: 503b650292f048f49a83a99ee5da6b3e, type: 2}
   - _name: SecondGirl
+    _come:
+      Guid:
+        Data1: 1970575152
+        Data2: 1200489930
+        Data3: 694138009
+        Data4: -1097960166
+      Path: event:/Voice/guests/guest_came_2
+    _leave:
+      Guid:
+        Data1: -1248896686
+        Data2: 1321670561
+        Data3: -2100682100
+        Data4: 952976566
+      Path: event:/Voice/guests/guest_gone_2
     _presets:
     - _preset: {fileID: 3194926490145321973, guid: 90c1d7493aeaccb42938e9a8428ed87f, type: 3}
       _parameter: {fileID: 11400000, guid: 0ec3cb0c48f397b47bb762503ced562c, type: 2}
@@ -1824,7 +1880,6 @@ MonoBehaviour:
       _alcohol: {fileID: 11400000, guid: 919a6b32b003b3d4b965658f097eecb5, type: 2}
   _characterInfo: {fileID: 311332392}
   _characterGameObjects: []
-  _monocleVectors: []
 --- !u!114 &311332394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2242,6 +2297,17 @@ Transform:
   m_Father: {fileID: 1428725990}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &403696219 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1108223491971201602, guid: d34fde9568d491240a86cfc455aee723, type: 3}
+  m_PrefabInstance: {fileID: 2046378860}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a64a1d203885b134799831a22a01cf5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &409123491
 GameObject:
   m_ObjectHideFlags: 0
@@ -3273,6 +3339,26 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4e77cdea8300af24eb62e1de2b21a0cc, type: 3}
   m_PrefabInstance: {fileID: 644973412}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &644973416
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644973413}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e197d80367bab2545ab4e8611f05c923, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &645161907
 GameObject:
   m_ObjectHideFlags: 0
@@ -9669,6 +9755,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400006, guid: 371ae9c9abb63b04589889fffff0e2b5, type: 3}
   m_PrefabInstance: {fileID: 1661155930}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1907416650 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1108223490284777454, guid: d34fde9568d491240a86cfc455aee723, type: 3}
+  m_PrefabInstance: {fileID: 2046378860}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 659bfa52ddd518644b38243e68d359eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1909217756
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10379,7 +10476,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1108223490226330497, guid: d34fde9568d491240a86cfc455aee723, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 19.011343
+      value: 0.000032083386
+      objectReference: {fileID: 0}
+    - target: {fileID: 1108223490284777453, guid: d34fde9568d491240a86cfc455aee723, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 403696219}
+    - target: {fileID: 1108223490284777453, guid: d34fde9568d491240a86cfc455aee723, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: CloseSection
       objectReference: {fileID: 0}
     - target: {fileID: 1108223490720276930, guid: d34fde9568d491240a86cfc455aee723, type: 3}
       propertyPath: m_Pivot.x
@@ -10497,9 +10602,41 @@ PrefabInstance:
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1108223491651072611, guid: d34fde9568d491240a86cfc455aee723, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1108223491651072611, guid: d34fde9568d491240a86cfc455aee723, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Target
+      value: 
+      objectReference: {fileID: 403696219}
+    - target: {fileID: 1108223491651072611, guid: d34fde9568d491240a86cfc455aee723, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
+      value: CloseSection
+      objectReference: {fileID: 0}
+    - target: {fileID: 1108223491651072611, guid: d34fde9568d491240a86cfc455aee723, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1108223491670255839, guid: d34fde9568d491240a86cfc455aee723, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 6.4991455
+      objectReference: {fileID: 0}
+    - target: {fileID: 1108223491971201601, guid: d34fde9568d491240a86cfc455aee723, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 1907416650}
+    - target: {fileID: 1108223491971201601, guid: d34fde9568d491240a86cfc455aee723, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: CloseSection
+      objectReference: {fileID: 0}
+    - target: {fileID: 1108223492189510003, guid: d34fde9568d491240a86cfc455aee723, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 1907416650}
+    - target: {fileID: 1108223492189510003, guid: d34fde9568d491240a86cfc455aee723, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: CloseSection
       objectReference: {fileID: 0}
     - target: {fileID: 1889414474578045028, guid: d34fde9568d491240a86cfc455aee723, type: 3}
       propertyPath: m_Type

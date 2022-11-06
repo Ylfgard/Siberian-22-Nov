@@ -1,4 +1,5 @@
-﻿using GameControllers;
+﻿using FMODUnity;
+using GameControllers;
 using System.Collections;
 using UnityEngine;
 
@@ -27,13 +28,14 @@ public class CharacterInfo : MonoBehaviour
         _questionManager.ShowQuestion(_questionText);
     }
 
-    public void SetCharacterInfo(QuestionTrigger questionTrigger, string textQuestion, Parameter[] parameterScore, CocktailAdditivesSO alcohol)
+    public void SetCharacterInfo(QuestionTrigger questionTrigger, string textQuestion, Parameter[] parameterScore,
+        CocktailAdditivesSO alcohol, EventReference leaveSound)
     {
         _questionTrigger = questionTrigger;
         _questionText = textQuestion;
         _allParamsScore = parameterScore;
         _alcohol = alcohol;
-        _scoreCounter.SetCharacterParameters(_allParamsScore, _alcohol);
+        _scoreCounter.SetCharacterParameters(_allParamsScore, _alcohol, leaveSound);
         _questionTrigger.OnEventCharacterTriggered += OnEventQuestionTriggered;
     }
 

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using GameControllers;
+using FMODUnity;
 
 public class CharacterGenerator : MonoBehaviour
 {
@@ -30,6 +31,7 @@ public class CharacterGenerator : MonoBehaviour
 
         Character character = _listCharacters[UnityEngine.Random.Range(0, _listCharacters.Count)];
 
+        RuntimeManager.PlayOneShot(character.ComeSound);
         Preset preset = character.GetRandomPreset();
         Object object1 = character.GetRandomObjects();
         Object object2 = character.GetRandomObjects();
@@ -53,13 +55,13 @@ public class CharacterGenerator : MonoBehaviour
             _characterGameObjects.Add(Instantiate(object2.GO));
         }
 
-        SetAllInfo(preset, object1, object2, question);
+        SetAllInfo(preset, object1, object2, question, character.LeaveSound);
     }
 
-    private void SetAllInfo(Preset preset, Object object1, Object object2, Question question)
+    private void SetAllInfo(Preset preset, Object object1, Object object2, Question question, EventReference leaveSound)
     {
         _characterInfo.SetCharacterInfo(_characterGameObjects[0].GetComponent<QuestionTrigger>(),
-         question.Description, CountParameterScore(preset, object1, object2), question.Alcohol);
+         question.Description, CountParameterScore(preset, object1, object2), question.Alcohol, leaveSound);
     }
 
     private Parameter[] CountParameterScore(Preset preset, Object object1, Object object2)
@@ -88,9 +90,14 @@ public class CharacterGenerator : MonoBehaviour
 public class Character
 {
     [SerializeField] private string _name;
+    [SerializeField] private EventReference _come;
+    [SerializeField] private EventReference _leave;
     [SerializeField] private List<Preset> _presets;
     [SerializeField] private List<Object> _objects;
     [SerializeField] private List<Question> _questions;
+
+    public EventReference ComeSound => _come;
+    public EventReference LeaveSound => _leave;
 
     public Preset GetRandomPreset()
     {
