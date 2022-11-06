@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20bfca7b9aa61474bacaf68f19d5855d, type: 3}
+  m_Name: "\u0425\u0438\u0449\u043D\u044B\u0439 \u0446\u0432\u0435\u0442\u043E\u043A
+    \u0441 \u0440\u0430\u0441\u043A\u0440\u044B\u0442\u043E\u0439 \u043B\u043E\u0432\u0443\u0448\u043A\u043E\u0439"
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 1294498423651969564, guid: 608747ed58da7e6449f2e901ca002f79, type: 3}
+  _parameters:
+  - _name: Aristocrate
+    _value: 0
+  - _name: BadGuy
+    _value: 1
+  - _name: Homely
+    _value: 0
+  - _name: PartyAnimal
+    _value: 0

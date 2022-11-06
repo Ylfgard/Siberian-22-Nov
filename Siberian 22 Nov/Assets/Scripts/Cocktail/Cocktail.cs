@@ -1,12 +1,15 @@
 using UnityEngine;
 using GameControllers;
 using FMODUnity;
+using TMPro;
 
 namespace Cocktails
 {
     public class Cocktail : MonoBehaviour, IResetable
     {
         //[SerializeField] private EventReference _cocktailFinish;
+        [SerializeField]
+        private TextMeshProUGUI _warningText;
         [SerializeField] private Color _failCocktailMaterial;
 
         private ScoreCounter _scoreCounter;
@@ -38,7 +41,7 @@ namespace Cocktails
         {
             if (_curAlcohol == null)
             {
-                Debug.Log("Selected " + glassParameters.name);
+                _warningText.text = "Выбран стакан: " + glassParameters.name;
                 _curGlassParameters = glassParameters;
                 _curDrinkMesh = drinkMesh;
                 return true;
@@ -52,6 +55,7 @@ namespace Cocktails
             if (combination == null)
             {
                 _curDrinkMesh.material.color = _failCocktailMaterial;
+                _warningText.text = "Какая гадость!";
                 Debug.Log("Какая гадость!");
             }
             else
@@ -74,6 +78,7 @@ namespace Cocktails
         {
             if(_curAlcohol == null)
             {
+                _warningText.text = "Вы не налили коктейль!";
                 Debug.Log("Вы не налили коктейль!");
                 return false;
             }

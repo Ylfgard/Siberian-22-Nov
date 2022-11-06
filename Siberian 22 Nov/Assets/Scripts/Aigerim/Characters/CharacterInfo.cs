@@ -6,10 +6,10 @@ using UnityEngine;
 public class CharacterInfo : MonoBehaviour
 {
     [SerializeField] private QuestionTrigger _questionTrigger;
+    [SerializeField] private QuestionManager _questionManager;
     [SerializeField] private string _questionText;
     [SerializeField] private Parameter[] _allParamsScore;
     [SerializeField] private CocktailAdditivesSO _alcohol;
-    [SerializeField] private QuestionManager _questionManager;
 
     private ScoreCounter _scoreCounter;
 
@@ -22,16 +22,9 @@ public class CharacterInfo : MonoBehaviour
         _scoreCounter = FindObjectOfType<ScoreCounter>();
     }
 
-
     public void OnEventQuestionTriggered()
     {
-        Debug.Log("event");
-        _questionManager.ShowQuestion(QuestionText);
-    }
-
-    private void OnDisable()
-    {
-        QuestionTrigger.OnEventCharacterTriggered -= OnEventQuestionTriggered;
+        _questionManager.ShowQuestion(_questionText);
     }
 
     public void SetCharacterInfo(QuestionTrigger questionTrigger, string textQuestion, Parameter[] parameterScore, CocktailAdditivesSO alcohol)
@@ -41,6 +34,11 @@ public class CharacterInfo : MonoBehaviour
         _allParamsScore = parameterScore;
         _alcohol = alcohol;
         _scoreCounter.SetCharacterParameters(_allParamsScore, _alcohol);
-        QuestionTrigger.Func(OnEventQuestionTriggered);
+        _questionTrigger.OnEventCharacterTriggered += OnEventQuestionTriggered;
+    }
+
+    private void OnDisable()
+    {
+        _questionTrigger.OnEventCharacterTriggered -= OnEventQuestionTriggered;
     }
 }

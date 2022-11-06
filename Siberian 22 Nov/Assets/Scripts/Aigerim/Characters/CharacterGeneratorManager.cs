@@ -1,31 +1,26 @@
+using GameControllers;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterGeneratorManager : MonoBehaviour
 {
-    [SerializeField] private CharacterInfo _characterInfo;
-    [SerializeField] private QuestionManager _questionManager;
+    [SerializeField] private CharacterGenerator _characterGenerator;
+    [SerializeField] private ScoreCounter _scoreCounter;
 
     private void Awake()
     {
-        _characterInfo = GetComponent<CharacterInfo>();
+        _characterGenerator = GetComponent<CharacterGenerator>();
     }
 
     private void Start()
     {
-        Debug.Log(_characterInfo.QuestionTrigger);
-        _characterInfo.QuestionTrigger.OnEventCharacterTriggered += OnEventQuestionTriggered;
+        _scoreCounter.ScoreCounted += _characterGenerator.InstantiateCharacter;
     }
-
-    public void OnEventQuestionTriggered()
-    {
-        _questionManager.ShowQuestion(_characterInfo.QuestionText);
-
-    }
+    
 
     private void OnDisable()
     {
-        _characterInfo.QuestionTrigger.OnEventCharacterTriggered -= OnEventQuestionTriggered;
+        _scoreCounter.ScoreCounted -= _characterGenerator.InstantiateCharacter;
     }
 }

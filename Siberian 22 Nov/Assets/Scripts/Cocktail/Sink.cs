@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Linq;
 using GameControllers;
+using TMPro;
 
 public delegate void SendEvent();
 
@@ -14,6 +15,7 @@ namespace Cocktails
         private Cocktail _cocktail;
         private Shaker _shaker;
         private ScoreCounter _scoreCounter;
+        [SerializeField] private TextMeshProUGUI _warningText;
 
         private void Awake()
         {
@@ -30,6 +32,7 @@ namespace Cocktails
         {
             if (_cocktail.CurAlcohol != null || _shaker.SelectedAlcohol != null)
             {
+                _warningText.text = "Штраф за растрату алкоголя! -5";
                 Debug.Log("Штраф за растрату алкоголя!" + _sinkPenalty);
                 _scoreCounter.ChangeScore(_sinkPenalty);
             }
@@ -40,7 +43,6 @@ namespace Cocktails
         private void ResetTable()
         {
             _restart?.Invoke();
-            Debug.Log("Reset table");
         }
     }
     

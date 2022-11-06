@@ -2,13 +2,14 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 using FMODUnity;
+using TMPro;
 
 namespace Cocktails
 {
     public class HandInteraction : MonoBehaviour, IResetable
     {
         [SerializeField] private DecorationHolder[] _decorationHolders;
-
+        [SerializeField] private TextMeshProUGUI _warningText;
         private Cocktail _cocktail;
         private Shaker _shaker;
         private CocktailParametersSO _selectedIngridient;
@@ -45,7 +46,8 @@ namespace Cocktails
 
         private void TakeIngridient(CocktailParametersSO parameters, GameObject prefab, EventReference reference)
         {
-            Debug.Log("Selected " + parameters.name + " ingridient");
+            _warningText.text = "Выбран ингредиент: " + parameters.name;
+            Debug.Log("Выбран ингредиент " + parameters.name);
             _selectedIngridient = parameters;
             _selectedIngridientPrefab = prefab;
             _selectedIngridientSound = reference;
