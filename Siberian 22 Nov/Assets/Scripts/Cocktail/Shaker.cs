@@ -58,7 +58,7 @@ namespace Cocktails
             if (_iceAdded == false && _selectedIngridients.Count <= 0)
             {
                 _warningText.text = "Не хватает ингредиентов!";
-                Debug.Log("Не хватает ингридиентов!");
+                Debug.Log("Не хватает ингрeдиентов!");
                 return;
             }
 
@@ -104,7 +104,7 @@ namespace Cocktails
 
         public void AddIngridient(CocktailParametersSO parameters)
         {
-            _warningText.text = "Смешали игредиенты и алкоголь";
+            _warningText.text = "Смешали в шейкере";
             _selectedIngridients.Add(parameters);
         }
 
