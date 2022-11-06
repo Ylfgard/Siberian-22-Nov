@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20bfca7b9aa61474bacaf68f19d5855d, type: 3}
   m_Name: Margarita
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 0}
+  _name: "\u041C\u0430\u0440\u0433\u0430\u0440\u0438\u0442\u0430"
+  _description: "\u041C\u0430\u0440\u0433\u0430\u0440\u0438\u0442\u0430"
   _parameters:
   - _name: Aristocrate
-    _value: 0
+    _value: 1
   - _name: BadGuy
     _value: 0
   - _name: Homely

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20bfca7b9aa61474bacaf68f19d5855d, type: 3}
   m_Name: CocktailThree
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 0}
+  _name: "\u041C\u0438\u043B\u043A\u0438 \u0432\u044D\u0439"
+  _description: "\u041A\u043E\u043A\u0442\u0435\u0439\u043B\u044C \u21163"
   _parameters:
   - _name: Aristocrate
     _value: 0

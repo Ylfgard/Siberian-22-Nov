@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20bfca7b9aa61474bacaf68f19d5855d, type: 3}
   m_Name: IceCreamScoop
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 1621076152036615299, guid: 1c35380bd79580144ab2b65f0d79ae96, type: 3}
+  _name: "\u041C\u043E\u0440\u043E\u0436\u0435\u043D\u043E\u0435"
+  _description: "\u041C\u043E\u0440\u043E\u0436\u0435\u043D\u043E\u0435"
   _parameters:
   - _name: Aristocrate
     _value: 0

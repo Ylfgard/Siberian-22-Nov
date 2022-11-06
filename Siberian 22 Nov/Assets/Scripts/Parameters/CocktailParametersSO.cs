@@ -4,9 +4,13 @@ using UnityEngine;
 [CreateAssetMenu (fileName = "NewCocktailParameter", menuName = "ScriptableObject/CocktailParameter")]
 public class CocktailParametersSO : ScriptableObject, IRequiredParameters
 {
+    [SerializeField] private string _name;
+    [SerializeField] [TextArea] private string _description;
     [SerializeField] private Parameter[] _parameters;
 
+    public string Name => _name;
     public Parameter[] Parameters => _parameters;
+    public string Description => _description;
 
     public void Setup(List<ParameterSO> parameters)
     {

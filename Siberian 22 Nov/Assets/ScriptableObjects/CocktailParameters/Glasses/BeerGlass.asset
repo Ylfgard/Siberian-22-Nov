@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20bfca7b9aa61474bacaf68f19d5855d, type: 3}
   m_Name: BeerGlass
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 0}
+  _name: "\u041F\u0438\u0432\u043D\u043E\u0439 \u0431\u043E\u043A\u0430\u043B"
+  _description: "\u0414\u043B\u044F \u0445\u0443\u043B\u0438\u0433\u0430\u043D\u043E\u0432"
   _parameters:
   - _name: Aristocrate
     _value: 0

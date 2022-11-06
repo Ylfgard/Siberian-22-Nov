@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20bfca7b9aa61474bacaf68f19d5855d, type: 3}
   m_Name: PredatoryFlowerWithOpenTrap
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 1294498423651969564, guid: 608747ed58da7e6449f2e901ca002f79, type: 3}
+  _name: "\u0425\u0438\u0449\u043D\u044B\u0439 \u0446\u0432\u0435\u0442\u043E\u043A"
+  _description: "\u0425\u0438\u0449\u043D\u044B\u0439 \u0446\u0432\u0435\u0442\u043E\u043A"
   _parameters:
   - _name: Aristocrate
     _value: 0

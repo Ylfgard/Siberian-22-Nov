@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20bfca7b9aa61474bacaf68f19d5855d, type: 3}
   m_Name: PurpleFlowerBud
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 9171889966244380137, guid: ffc2a6c0684eeda438431d31f305ee6a, type: 3}
+  _name: "\u0411\u0443\u0442\u043E\u043D \u0444\u0435\u043B\u0438\u043D\u0438\u0438"
+  _description: "\u0411\u0443\u0442\u043E\u043D \u0444\u0435\u043B\u0438\u043D\u0438\u0438"
   _parameters:
   - _name: Aristocrate
     _value: 1
