@@ -10,17 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 20bfca7b9aa61474bacaf68f19d5855d, type: 3}
-  m_Name: "\u041C\u0430\u043B\u0435\u043D\u044C\u043A\u043E\u0435 \u0438 \u043E\u043A\u0440\u0443\u0433\u043B\u043E\u0435
-    \u044F\u0439\u0446\u043E \u0447\u0443\u0436\u043E\u0433\u043E"
+  m_Name: MilkyWay
   m_EditorClassIdentifier: 
-  _name: "\u042F\u0439\u0446\u043E \u0447\u0443\u0436\u043E\u0433\u043E"
-  _description: "\u042F\u0439\u0446\u043E \u0447\u0443\u0436\u043E\u0433\u043E"
+  _name: "\u041C\u0438\u043B\u043A\u0438 \u0432\u044D\u0439"
+  _description: "\u041C\u0438\u043B\u043A\u0438 \u0432\u044D\u0439"
   _parameters:
   - _name: Aristocrate
     _value: 0
   - _name: BadGuy
-    _value: 1
+    _value: 0
   - _name: Homely
     _value: 0
   - _name: PartyAnimal
-    _value: 0
+    _value: 2

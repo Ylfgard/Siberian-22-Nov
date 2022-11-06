@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 20bfca7b9aa61474bacaf68f19d5855d, type: 3}
-  m_Name: "\u041F\u0438\u0432\u043D\u043E\u0439"
+  m_Name: CarnivorousFlower
   m_EditorClassIdentifier: 
-  _name: "\u041A\u043E\u043A\u0442\u0435\u0439\u043B\u044C\u043D\u0430\u044F \u0440\u044E\u043C\u043A\u0430"
-  _description: "\u041A\u043E\u043A\u0442\u0435\u0439\u043B\u044C\u043D\u0430\u044F
-    \u0440\u044E\u043C\u043A\u0430"
+  _name: "\u0425\u0438\u0449\u043D\u044B\u0439 \u0446\u0432\u0435\u0442\u043E\u043A"
+  _description: "\u0425\u0438\u0449\u043D\u044B\u0439 \u0446\u0432\u0435\u0442\u043E\u043A"
   _parameters:
   - _name: Aristocrate
     _value: 0

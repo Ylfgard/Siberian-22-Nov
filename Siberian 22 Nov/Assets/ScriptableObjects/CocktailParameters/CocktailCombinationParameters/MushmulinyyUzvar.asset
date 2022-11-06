@@ -10,18 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 20bfca7b9aa61474bacaf68f19d5855d, type: 3}
-  m_Name: "\u0413\u0440\u043E\u0437\u0434\u044C \u043C\u0430\u043B\u0435\u043D\u044C\u043A\u0438\u0445
-    \u043E\u043A\u0440\u0443\u0433\u043B\u044B\u0445 \u044F\u0433\u043E\u0434"
+  m_Name: MushmulinyyUzvar
   m_EditorClassIdentifier: 
-  _name: "\u0413\u0440\u043E\u0437\u0434\u044C \u043C\u0443\u0448\u043C\u0443\u043B\u044B"
-  _description: "\u0413\u0440\u043E\u0437\u0434\u044C \u043C\u0430\u043B\u044C\u0435\u043D\u044C\u043A\u0438\u0445
-    \u044F\u0433\u043E\u0434"
+  _name: "\u041C\u0443\u0448\u043C\u0443\u043B\u0438\u043D\u044B\u0439 \u0443\u0437\u0432\u0430\u0440"
+  _description: "\u041C\u0443\u0448\u043C\u0443\u043B\u0438\u043D\u044B\u0439 \u0443\u0437\u0432\u0430\u0440"
   _parameters:
   - _name: Aristocrate
-    _value: 1
+    _value: 0
   - _name: BadGuy
     _value: 0
   - _name: Homely
-    _value: 0
+    _value: 2
   - _name: PartyAnimal
     _value: 0

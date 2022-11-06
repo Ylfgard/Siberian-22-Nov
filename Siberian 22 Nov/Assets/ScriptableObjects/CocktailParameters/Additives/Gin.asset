@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9f1d6b586d14c0469cc69527ba0ce65, type: 3}
-  m_Name: "\u041A\u0438\u0441\u043A\u0438"
+  m_Name: Gin
   m_EditorClassIdentifier: 
   _name: "\u0414\u0436\u0438\u043D"
   _description: "\u0413\u043E\u0432\u043E\u0440\u044F\u0442, \u044D\u0442\u043E\u0442
