@@ -41,7 +41,7 @@ namespace Cocktails
         {
             if (_curAlcohol == null)
             {
-                _warningText.text = "Выбран стакан: " + glassParameters.name;
+                _warningText.text = "Выбран стакан: " + glassParameters.Name;
                 _curGlassParameters = glassParameters;
                 _curDrinkMesh = drinkMesh;
                 return true;
@@ -61,6 +61,7 @@ namespace Cocktails
             else
             {
                 _curDrinkMesh.material.color = combination.Color;
+                _warningText.text = "Коктейль: " + combination.Parameters.Name;
                 Debug.Log(combination.name + " " + alcohol.name);
             }
             _curDrinkMesh.enabled = true;
