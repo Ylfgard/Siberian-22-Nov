@@ -92,6 +92,7 @@ namespace Cocktails
                 holder.Decorations.Add(_selectedIngridient.name, decoration);
             }
             _curDecoration = decoration;
+            _cocktail.SetDecoration(_selectedIngridient);
             _selectedIngridient = null;
         }
 
