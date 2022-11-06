@@ -9,36 +9,36 @@ public class ParameterSetuper : MonoBehaviour
     
     public ParameterRequest[] ParameterRequests => _parameterRequests;
 
-#if UNITY_EDITOR
-    [MenuItem("Edit/Find Parameters")]
-#endif
-    private static void FindParametrs()
-    {
-        string[] parametrsGUID = AssetDatabase.FindAssets("t:ParameterSO", new[] { "Assets/ScriptableObjects/Parameters" });
-        List<string> parametersPaths = new List<string>();
-        foreach (string GUID in parametrsGUID)
-            parametersPaths.Add(AssetDatabase.GUIDToAssetPath(GUID));
-        var parameters = new List<ParameterSO>();
-        foreach (string path in parametersPaths)
-            parameters.Add(AssetDatabase.LoadAssetAtPath(path, typeof(ParameterSO)) as ParameterSO);
+//#if UNITY_EDITOR
+//    [MenuItem("Edit/Find Parameters")]
+//#endif
+//    private static void FindParametrs()
+//    {
+//        string[] parametrsGUID = AssetDatabase.FindAssets("t:ParameterSO", new[] { "Assets/ScriptableObjects/Parameters" });
+//        List<string> parametersPaths = new List<string>();
+//        foreach (string GUID in parametrsGUID)
+//            parametersPaths.Add(AssetDatabase.GUIDToAssetPath(GUID));
+//        var parameters = new List<ParameterSO>();
+//        foreach (string path in parametersPaths)
+//            parameters.Add(AssetDatabase.LoadAssetAtPath(path, typeof(ParameterSO)) as ParameterSO);
 
-        var parameterRequests = Singltone.instance.GetParameterRequests();
-        foreach(var pReq in parameterRequests)
-        {
-            if (pReq.Active == false) continue;
-            string[] requestsGUID = AssetDatabase.FindAssets("t:" + pReq.Type, new[] { pReq.Path });
-            List<string> requestsPaths = new List<string>();
-            foreach (string GUID in requestsGUID)
-                requestsPaths.Add(AssetDatabase.GUIDToAssetPath(GUID));
-            Type type = Type.GetType(pReq.Type);
-            foreach(string path in requestsPaths)
-            {
-                var request = AssetDatabase.LoadAssetAtPath(path, type) as IRequiredParameters;
-                Debug.Log(request);
-                request.Setup(parameters);
-            }
-        }
-    }
+//        var parameterRequests = Singltone.instance.GetParameterRequests();
+//        foreach(var pReq in parameterRequests)
+//        {
+//            if (pReq.Active == false) continue;
+//            string[] requestsGUID = AssetDatabase.FindAssets("t:" + pReq.Type, new[] { pReq.Path });
+//            List<string> requestsPaths = new List<string>();
+//            foreach (string GUID in requestsGUID)
+//                requestsPaths.Add(AssetDatabase.GUIDToAssetPath(GUID));
+//            Type type = Type.GetType(pReq.Type);
+//            foreach(string path in requestsPaths)
+//            {
+//                var request = AssetDatabase.LoadAssetAtPath(path, type) as IRequiredParameters;
+//                Debug.Log(request);
+//                request.Setup(parameters);
+//            }
+//        }
+//    }
 }
 
 [Serializable]

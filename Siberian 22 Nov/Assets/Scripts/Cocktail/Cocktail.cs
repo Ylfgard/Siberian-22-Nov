@@ -31,28 +31,28 @@ namespace Cocktails
             Reset();
         }
 
-//#if UNITY_EDITOR
-//        [ContextMenu("Find Parameters")]
-//#endif
-        private void FindParameters()
-        {
-            string[] parametrsGUID = AssetDatabase.FindAssets("t:ParameterSO", new[] { "Assets/ScriptableObjects/Parameters" });
-            List<string> parametersPaths = new List<string>();
-            foreach (string GUID in parametrsGUID)
-                parametersPaths.Add(AssetDatabase.GUIDToAssetPath(GUID));
-            var parameters = new List<ParameterSO>();
-            foreach (string path in parametersPaths)
-                parameters.Add(AssetDatabase.LoadAssetAtPath(path, typeof(ParameterSO)) as ParameterSO);
+        //#if UNITY_EDITOR
+        //        [ContextMenu("Find Parameters")]
+        //#endif
+        //private void FindParameters()
+        //{
+        //    string[] parametrsGUID = AssetDatabase.FindAssets("t:ParameterSO", new[] { "Assets/ScriptableObjects/Parameters" });
+        //    List<string> parametersPaths = new List<string>();
+        //    foreach (string GUID in parametrsGUID)
+        //        parametersPaths.Add(AssetDatabase.GUIDToAssetPath(GUID));
+        //    var parameters = new List<ParameterSO>();
+        //    foreach (string path in parametersPaths)
+        //        parameters.Add(AssetDatabase.LoadAssetAtPath(path, typeof(ParameterSO)) as ParameterSO);
 
-            _parameterInCocktails = new ParameterInCocktail[parameters.Count];
-            for (int i = 0; i < _parameterInCocktails.Length; i++)
-                _parameterInCocktails[i] = new ParameterInCocktail(parameters[i].name, 0);
-        }
+        //    _parameterInCocktails = new ParameterInCocktail[parameters.Count];
+        //    for (int i = 0; i < _parameterInCocktails.Length; i++)
+        //        _parameterInCocktails[i] = new ParameterInCocktail(parameters[i].name, 0);
+        //}
 
         public void ChangeCocktailParameters(Parameter[] parameters, bool increaseValue)
         {
             if (_curCocktailCombination == null && _curAlcohol != null) return;
-            ParameterInCocktail par; 
+            ParameterInCocktail par;
             for (int i = 0; i < parameters.Length; i++)
             {
                 par = _parameterInCocktails[i];
