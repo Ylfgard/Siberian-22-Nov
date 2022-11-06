@@ -11,7 +11,7 @@ namespace Cocktails
     public class Cocktail : MonoBehaviour, IResetable
     {
         public event Action<CocktailCombinationSO, CocktailAdditivesSO, ParameterInCocktail[]> OnPouredCocktail;
-        //[SerializeField] private EventReference _cocktailFinish;
+        [SerializeField] private EventReference _cocktailFinish;
         [SerializeField] private ParameterInCocktail[] _parameterInCocktails;
         [SerializeField] private TextMeshProUGUI _warningText;
         [SerializeField] private Color _failCocktailMaterial;
@@ -153,7 +153,7 @@ namespace Cocktails
             //}
 
             _scoreCounter.CountScore(result, _curAlcohol);
-            //RuntimeManager.PlayOneShot(_cocktailFinish);
+            RuntimeManager.PlayOneShot(_cocktailFinish);
             Reset();
             return true;
         }

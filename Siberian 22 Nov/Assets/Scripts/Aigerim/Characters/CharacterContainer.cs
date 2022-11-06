@@ -22,10 +22,12 @@ public class Object
 {
     [SerializeField] private GameObject _object;
     [SerializeField] private ObjectParametersSO _parameter;
+    [SerializeField] private Transform _point;
 
     public GameObject GO => _object;
 
     public ObjectParametersSO ObjectParameter => _parameter;
+    public Transform Point => _point;
 }
 
 [Serializable]

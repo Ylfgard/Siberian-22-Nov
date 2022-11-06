@@ -40,6 +40,7 @@ public class TutorialManager : MonoBehaviour, IResetable
     private void ShowFirstSentence()
     {
         _dialogText.text = _tutorialText[0];
+        _book.OnEventOpenedBook -= ShowFirstSentence;
         RuntimeManager.PlayOneShot(_succesSound);
     }
 

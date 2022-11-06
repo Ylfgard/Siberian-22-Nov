@@ -44,15 +44,15 @@ public class CharacterGenerator : MonoBehaviour
 
         if (object1 != object2)
         {
-            _characterGameObjects.Add(Instantiate(object1.GO));
-            _characterGameObjects.Add(Instantiate(object2.GO));
+            _characterGameObjects.Add(Instantiate(object1.GO, object1.Point.position, Quaternion.identity));
+            _characterGameObjects.Add(Instantiate(object2.GO, object2.Point.position, Quaternion.identity));
         }
         else
         {
             object1 = character.GetRandomObjects(0, 2);
             object2 = character.GetRandomObjects(2, 3);
-            _characterGameObjects.Add(Instantiate(object1.GO));
-            _characterGameObjects.Add(Instantiate(object2.GO));
+            _characterGameObjects.Add(Instantiate(object1.GO, object1.Point.position, Quaternion.identity));
+            _characterGameObjects.Add(Instantiate(object2.GO, object2.Point.position, Quaternion.identity));
         }
 
         SetAllInfo(preset, object1, object2, question, character.LeaveSound);
