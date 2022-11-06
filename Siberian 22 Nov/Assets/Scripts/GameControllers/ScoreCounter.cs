@@ -1,13 +1,16 @@
 using UnityEngine;
-using Cocktails;
 using TMPro;
 
 namespace GameControllers
 {
+    public delegate void SendInt(int value);
+
     public class ScoreCounter : MonoBehaviour
     {
+        public event SendInt ScoreChanged;
         public event SendEvent ScoreCounted;
 
+        [SerializeField] private bool _endlessLevel;
         [SerializeField] private TextMeshProUGUI _scoreText;
         [SerializeField] private TextMeshProUGUI _warningText;
 
@@ -46,7 +49,12 @@ namespace GameControllers
                 else
                     result = 0;
             }
-            _score += result * 10;
+
+            if(_endlessLevel) 
+                ScoreChanged?.Invoke(result * 10);
+            else
+                _score += result * 10;
+
             if (_score < 0) 
                 _score = 0;
             Debug.Log(_score + " Alcohol: " + (_characterAlcohol == alcohol).ToString());
@@ -54,12 +62,26 @@ namespace GameControllers
             ScoreCounted?.Invoke();
         }
 
-        public void ChangeScore(int Value)
+        public void ChangeScore(int value)
         {
-            if(_score > 0) _warningText.text = "Штраф за растрату алкоголя! " + Value;
-            _score += Value;
+            if (_endlessLevel)
+            {
+                ScoreChanged?.Invoke(value);
+                return;
+            }
+
+            if (_score > 0) _warningText.text = "Штраф за растрату алкоголя! " + value;
+            _score += value;
             if (_score < 0) _score = 0;
             _scoreText.text = _score.ToString();
+        }
+
+        private void Update()
+        {
+            if (_endlessLevel == false) return;
+
+            _score += Time.deltaTime;
+            _scoreText.text = Mathf.RoundToInt(_score).ToString();
         }
     }
 }

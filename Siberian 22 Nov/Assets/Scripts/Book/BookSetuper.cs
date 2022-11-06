@@ -7,7 +7,7 @@ using Cocktails;
 
 namespace Book
 {
-    public class Book : MonoBehaviour
+    public class BookSetuper : MonoBehaviour
     {
         [SerializeField] private GameObject _bookBody;
         [SerializeField] private ParameterValueText[] _parametersValueText;
